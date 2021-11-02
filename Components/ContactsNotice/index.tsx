@@ -1,10 +1,12 @@
-import { CONFIG } from 'CONFIG'
 import { NextPage } from 'next'
 import React from 'react'
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 
+import { CONFIG } from 'CONFIG'
+
 import { Container } from 'Components/Container'
+import { IGlobalInfo } from 'services/notion'
 
 import {
   StyledContactNotice,
@@ -14,7 +16,7 @@ import {
   StyledContactNoticeSocialNetwork,
 } from './styles'
 
-interface ContactsNoticeProps {}
+interface ContactsNoticeProps extends IGlobalInfo {}
 
 interface SocialNetwork {
   logo: React.ReactNode
@@ -27,7 +29,8 @@ const SOCIAL_NETWORKS: SocialNetwork[] = [
   { logo: FaTelegramPlane, url: CONFIG.telegramUrl },
 ]
 
-const ContactsNotice: NextPage = ({}: ContactsNoticeProps) => {
+const ContactsNotice = ({ appName, phoneNumber, email, slogan }: ContactsNoticeProps) => {
+  console.log('phoneNumber', phoneNumber)
   return (
     <StyledContactNotice>
       <Container>
@@ -35,8 +38,8 @@ const ContactsNotice: NextPage = ({}: ContactsNoticeProps) => {
           <div>Работаем: {CONFIG.workingHours}</div>
           <div>
             Позвоните нам:{' '}
-            <StyledContactNoticePhone href={`tel:${CONFIG.phoneNumber}`}>
-              {CONFIG.phoneNumber}
+            <StyledContactNoticePhone href={`tel:${phoneNumber}`}>
+              {phoneNumber}
             </StyledContactNoticePhone>
           </div>
           <StyledContactNoticeSocialNetworks>

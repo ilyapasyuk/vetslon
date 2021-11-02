@@ -8,6 +8,7 @@ export interface Config {
   slogan: string
   workingHours: string
   defaultTitle: string
+  globalInfoDatabaseId: string
 }
 
 export const CONFIG: Config = {
@@ -20,4 +21,5 @@ export const CONFIG: Config = {
   slogan: 'Ветеринарная помощь  с выездом по СПБ и области',
   workingHours: '24/7',
   defaultTitle: 'Ветеринарная помощь с выездом',
+  globalInfoDatabaseId: '0efc479e4018438c9a8fb56d71be2f42',
 }
