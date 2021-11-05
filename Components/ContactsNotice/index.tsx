@@ -6,7 +6,7 @@ import { FaTelegramPlane } from 'react-icons/fa'
 import { CONFIG } from 'CONFIG'
 
 import { Container } from 'Components/Container'
-import { IGlobalInfo } from 'services/notion'
+import { IGlobalInfo } from 'services/clinic'
 
 import {
   StyledContactNotice,

@@ -1,7 +1,6 @@
-import { CONFIG } from 'CONFIG'
 import type { NextPageContext } from 'next'
 
-import { getDatabase, IGlobalInfo } from 'services/notion'
+import { IGlobalInfo } from 'services/clinic'
 
 import { ContactsNotice } from 'Components/ContactsNotice'
 import { Layout } from 'Components/Layout'
@@ -24,11 +23,9 @@ const Home = ({ globalInfo }: HomeProps) => {
 }
 
 export async function getStaticProps(context: NextPageContext) {
-  const serverData = await getDatabase(CONFIG.globalInfoDatabaseId)
-
   return {
     props: {
-      globalInfo: serverData,
+      globalInfo: {},
     },
   }
 }
