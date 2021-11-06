@@ -1,10 +1,10 @@
-import { Layout } from 'Components/Layout'
+import { LayoutForClients } from 'Components/LayoutForClients'
 import React from 'react'
 
 interface ContactsProps {}
 
 const Contacts = ({}: ContactsProps) => {
-  return <Layout title="Контакты">Contacts</Layout>
+  return <LayoutForClients title="Контакты">Contacts</LayoutForClients>
 }
 
 export default Contacts

@@ -1,4 +1,4 @@
-import { Layout } from 'Components/Layout'
+import { LayoutForClients } from 'Components/LayoutForClients'
 import { AdminMainPage } from 'Containers/AdminMainPage'
 import { ACTION } from 'Contexts/actions'
 import { StoreContext } from 'Contexts/store'
@@ -35,9 +35,9 @@ const Admin = ({}: AdminProps) => {
   }
 
   return (
-    <Layout title="Настройки">
+    <LayoutForClients title="Настройки">
       {user?.isAdmin ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
-    </Layout>
+    </LayoutForClients>
   )
 }
 

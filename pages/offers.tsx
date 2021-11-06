@@ -1,10 +1,10 @@
-import { Layout } from 'Components/Layout'
+import { LayoutForClients } from 'Components/LayoutForClients'
 import React from 'react'
 
 interface OffersProps {}
 
 const Offers = ({}: OffersProps) => {
-  return <Layout title="Акции">акции</Layout>
+  return <LayoutForClients title="Акции">акции</LayoutForClients>
 }
 
 export default Offers

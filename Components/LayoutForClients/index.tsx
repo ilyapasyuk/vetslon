@@ -13,7 +13,7 @@ interface LayoutProps {
   title: string
 }
 
-const Layout = ({ children, title }: LayoutProps) => {
+const LayoutForClients = ({ children, title }: LayoutProps) => {
   return (
     <StyleLayout>
       <Head>
@@ -40,4 +40,4 @@ const Layout = ({ children, title }: LayoutProps) => {
   )
 }
 
-export { Layout }
+export { LayoutForClients }

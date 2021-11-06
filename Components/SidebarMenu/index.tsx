@@ -17,7 +17,9 @@ const SidebarMenu = ({ menu, onClick, isShowOnClickArea = true }: SidebarMenuPro
     <StyledMenu>
       {menu.map(menuItem => (
         <StyledMenuItem key={menuItem.url}>
-          <StyledMenuLink href={menuItem.url}>{menuItem.title}</StyledMenuLink>
+          <Tooltip title="Перейти" arrow placement="top">
+            <StyledMenuLink href={menuItem.url}>{menuItem.title}</StyledMenuLink>
+          </Tooltip>
           {isShowOnClickArea && (
             <Tooltip arrow title={menuItem.isAvailable ? 'Скрыть' : 'Показать'} placement="top">
               <StyledMenuOnClickButton
