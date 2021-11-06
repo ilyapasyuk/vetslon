@@ -16,10 +16,13 @@ const StyledContactNoticeWrapper = styled.div`
   line-height: 1.6;
   padding: 15px 0;
 
+  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) and (max-width: ${MEDIA_QUERY.LARGE_DEVICES}px) {
+    padding: 15px;
+  }
+
   @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
     grid-template-columns: 1fr 1fr 1fr;
     text-align: initial;
-    padding: 15px;
   }
 `
 

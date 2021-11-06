@@ -8,6 +8,11 @@ const StyleLayout = styled.div`
 const GlobalStyles = createGlobalStyle`
 body {
   margin: 0;
-}`
+}
+
+a, .button {
+  transition: all 0.3s ease-out 0s;
+}
+`
 
 export { GlobalStyles, StyleLayout }

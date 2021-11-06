@@ -1,3 +1,6 @@
+import { Layout } from 'Components/Layout'
+import { StyledMenu } from 'Components/SidebarMenu/style'
+import { AdminMainPage } from 'Containers/AdminMainPage'
 import React, { useEffect, useState } from 'react'
 
 import { signInWithGoogle } from 'services/authentication'
@@ -24,7 +27,15 @@ const Admin = ({}: AdminProps) => {
     setUser(user)
   }
 
-  return <div>{user ? <h1>logged</h1> : <button onClick={logIn}>google</button>}</div>
+  if (user && !user?.isAdmin) {
+    return <h2>Sorry, your isn`t admin =/ </h2>
+  }
+
+  return (
+    <Layout title="Настройки">
+      {user ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
+    </Layout>
+  )
 }
 
 export default Admin

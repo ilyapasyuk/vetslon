@@ -47,4 +47,5 @@ export const CONFIG: Config = {
 export enum COLLECTION {
   SERVICES = 'services',
   USERS = 'users',
+  PAGES = 'pages',
 }

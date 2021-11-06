@@ -33,4 +33,14 @@ const checkUserForAdminRights = async (userEmail: string): Promise<boolean> => {
   return Boolean(users.length)
 }
 
-export { getUser, checkUserForAdminRights }
+const deleteUserFromStorage = async (): Promise<void> => {
+  const userFromLocalStorage: string | null =
+    (await window.localStorage.getItem(LOCAL_STORAGE_KEY)) || null
+
+  if (userFromLocalStorage) {
+    await window.localStorage.removeItem(LOCAL_STORAGE_KEY)
+  }
+  return
+}
+
+export { getUser, checkUserForAdminRights, deleteUserFromStorage }

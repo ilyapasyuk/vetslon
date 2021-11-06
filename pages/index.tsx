@@ -2,7 +2,6 @@ import type { NextPageContext } from 'next'
 
 import { IGlobalInfo } from 'services/clinic'
 
-import { ContactsNotice } from 'Components/ContactsNotice'
 import { Layout } from 'Components/Layout'
 
 interface HomeProps {
@@ -10,16 +9,7 @@ interface HomeProps {
 }
 
 const Home = ({ globalInfo }: HomeProps) => {
-  return (
-    <Layout title="СЛОН">
-      <ContactsNotice
-        phoneNumber={globalInfo.phoneNumber}
-        appName={globalInfo.appName}
-        email={globalInfo.email}
-        slogan={globalInfo.slogan}
-      />
-    </Layout>
-  )
+  return <Layout title="СЛОН">123</Layout>
 }
 
 export async function getStaticProps(context: NextPageContext) {

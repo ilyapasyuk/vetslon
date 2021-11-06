@@ -30,7 +30,6 @@ const SOCIAL_NETWORKS: SocialNetwork[] = [
 ]
 
 const ContactsNotice = ({ appName, phoneNumber, email, slogan }: ContactsNoticeProps) => {
-  console.log('phoneNumber', phoneNumber)
   return (
     <StyledContactNotice>
       <Container>
