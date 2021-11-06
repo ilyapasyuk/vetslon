@@ -1,12 +1,12 @@
-import { NextPage } from 'next'
 import React from 'react'
+import { Container } from '@mui/material'
+
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 
 import { CONFIG } from 'CONFIG'
 
-import { Container } from 'Components/Container'
-import { IGlobalInfo } from 'services/notion'
+import { IGlobalInfo } from 'services/clinic'
 
 import {
   StyledContactNotice,
@@ -30,7 +30,6 @@ const SOCIAL_NETWORKS: SocialNetwork[] = [
 ]
 
 const ContactsNotice = ({ appName, phoneNumber, email, slogan }: ContactsNoticeProps) => {
-  console.log('phoneNumber', phoneNumber)
   return (
     <StyledContactNotice>
       <Container>
