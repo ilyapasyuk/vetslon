@@ -1,6 +1,5 @@
 import { ActiveLink } from 'Components/ActiveLink'
 import React from 'react'
-import { useRouter } from 'next/router'
 
 import { StyledMainMenuDesktopItem, StyledMainMenuDesktopList } from './style'
 
@@ -11,8 +10,6 @@ interface MainMenuDesktopProps {
 }
 
 const MainMenuDesktop = ({ menu }: MainMenuDesktopProps) => {
-  const router = useRouter()
-
   return (
     <StyledMainMenuDesktopList>
       {menu.map(menuItem => (

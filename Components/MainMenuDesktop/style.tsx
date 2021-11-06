@@ -25,6 +25,7 @@ const StyledMainMenuDesktopItem = styled.li`
 
     &.StyledMainMenuDesktopItem_active {
       color: white;
+
       &:before {
         opacity: 1;
       }
