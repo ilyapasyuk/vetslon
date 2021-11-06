@@ -1,7 +1,8 @@
 import { Layout } from 'Components/Layout'
-import { StyledMenu } from 'Components/SidebarMenu/style'
 import { AdminMainPage } from 'Containers/AdminMainPage'
-import React, { useEffect, useState } from 'react'
+import { ACTION } from 'Contexts/actions'
+import { StoreContext } from 'Contexts/store'
+import React, { useContext, useEffect } from 'react'
 
 import { signInWithGoogle } from 'services/authentication'
 import { getUser, User } from 'services/user'
@@ -9,12 +10,14 @@ import { getUser, User } from 'services/user'
 interface AdminProps {}
 
 const Admin = ({}: AdminProps) => {
-  const [user, setUser] = useState<User | null>(null)
+  const { state, dispatch } = useContext(StoreContext)
+
+  const { user } = state
 
   const init = async () => {
     const user = await getUser()
     if (user) {
-      setUser(user)
+      dispatch({ action: ACTION.SET_USER, data: user })
     }
   }
 
@@ -24,7 +27,7 @@ const Admin = ({}: AdminProps) => {
 
   const logIn = async () => {
     const user = await signInWithGoogle()
-    setUser(user)
+    dispatch({ action: ACTION.SET_USER, data: user })
   }
 
   if (user && !user?.isAdmin) {
@@ -33,7 +36,7 @@ const Admin = ({}: AdminProps) => {
 
   return (
     <Layout title="Настройки">
-      {user ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
+      {user?.isAdmin ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
     </Layout>
   )
 }

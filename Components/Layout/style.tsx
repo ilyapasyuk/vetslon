@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import bgImage from '../../public/bg.jpeg'
 
 const StyleLayout = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -8,6 +9,7 @@ const StyleLayout = styled.div`
 const GlobalStyles = createGlobalStyle`
 body {
   margin: 0;
+  background-image: url(${bgImage.src});
 }
 
 a, .button {

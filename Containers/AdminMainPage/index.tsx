@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react'
-
-import { getAllPages, ClientPageType, updatePage } from 'services/pages'
+import React, { useContext, useEffect } from 'react'
+import { Container } from '@mui/material'
 
 import { SidebarMenu } from 'Components/SidebarMenu'
+import { ACTION } from 'Contexts/actions'
+
+import { StoreContext } from 'Contexts/store'
+
+import { ClientPageType, getAllPages, updatePage } from 'services/pages'
 
 interface AdminMainPageProps {}
 
 const AdminMainPage = ({}: AdminMainPageProps) => {
-  const [pages, setPages] = useState<ClientPageType[]>([])
+  const { state, dispatch } = useContext(StoreContext)
 
   useEffect(() => {
     getSitePagesFromFirebase()
   }, [])
 
   const getSitePagesFromFirebase = async () => {
-    const allPages = await getAllPages()
-    setPages(allPages)
+    const pages = await getAllPages()
+    dispatch({ action: ACTION.SET_PAGES, data: pages })
   }
 
   const toggleAvailablePage = async (page: ClientPageType) => {
@@ -26,9 +30,12 @@ const AdminMainPage = ({}: AdminMainPageProps) => {
   }
 
   return (
-    <div>
-      <SidebarMenu menu={pages} onClick={clickedMenuItem => toggleAvailablePage(clickedMenuItem)} />
-    </div>
+    <Container>
+      <SidebarMenu
+        menu={state.mainMenu}
+        onClick={clickedMenuItem => toggleAvailablePage(clickedMenuItem)}
+      />
+    </Container>
   )
 }
 

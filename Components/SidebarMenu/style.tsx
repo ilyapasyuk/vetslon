@@ -6,21 +6,17 @@ const StyledMenu = styled.ul`
   border: 1px solid #ebebeb;
   margin: 0;
   padding: 0;
+  background: white;
 `
 
 const StyledMenuItem = styled.li`
-  list-style: none;
-  margin: 0;
-  border: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 10px 18px;
-
-  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
-    padding: 14px 18px;
-  }
+  list-style: none;
+  margin: 0;
+  border: 0;
+  position: relative;
 
   & + & {
     border-top: 1px solid #ebebeb;
@@ -32,6 +28,13 @@ const StyledMenuLink = styled.a`
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  display: block;
+  padding: 10px 18px;
+  flex: 1;
+
+  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
+    padding: 14px 18px;
+  }
 
   &:hover {
     color: #0a303a;
@@ -39,4 +42,11 @@ const StyledMenuLink = styled.a`
   }
 `
 
-export { StyledMenu, StyledMenuItem, StyledMenuLink }
+const StyledMenuOnClickButton = styled.button`
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+`
+
+export { StyledMenu, StyledMenuItem, StyledMenuLink, StyledMenuOnClickButton }

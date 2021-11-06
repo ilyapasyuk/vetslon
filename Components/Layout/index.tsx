@@ -1,9 +1,10 @@
-import { ContactsNotice } from 'Components/ContactsNotice'
-import { CONFIG } from 'CONFIG'
 import React from 'react'
 import Head from 'next/head'
 
-import { Container } from 'Components/Container'
+import { CONFIG } from 'CONFIG'
+
+import { ContactsNotice } from 'Components/ContactsNotice'
+import { Header } from 'Components/Header'
 
 import { StyleLayout, GlobalStyles } from './style'
 
@@ -32,7 +33,8 @@ const Layout = ({ children, title }: LayoutProps) => {
         email={CONFIG.email}
         slogan={CONFIG.slogan}
       />
-      <Container>{children}</Container>
+      <Header />
+      {children}
       <GlobalStyles />
     </StyleLayout>
   )
