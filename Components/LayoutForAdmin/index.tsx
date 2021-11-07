@@ -13,13 +13,15 @@ interface LayoutForAdminProps {
   children: React.ReactNode
 }
 
+const prefixForAdminPages: string = '/admin/'
+
 const LayoutForAdmin = ({ children }: LayoutForAdminProps) => {
   const { state, dispatch } = useContext(StoreContext)
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false)
 
   const preparedMenu: ClientPageType[] = state.mainMenu.map(menuItem => ({
     ...menuItem,
-    url: `/admin/${menuItem.url}`,
+    url: `${prefixForAdminPages}${menuItem.url}`,
   }))
 
   useEffect(() => {
@@ -41,7 +43,11 @@ const LayoutForAdmin = ({ children }: LayoutForAdminProps) => {
   }
 
   const toggleAvailablePage = async (page: ClientPageType) => {
-    const updatedPage: ClientPageType = { ...page, isAvailable: !page.isAvailable }
+    const updatedPage: ClientPageType = {
+      ...page,
+      isAvailable: !page.isAvailable,
+      url: page.url.replace(prefixForAdminPages, ''),
+    }
 
     await updatePage(updatedPage)
     await getSitePagesFromFirebase()
