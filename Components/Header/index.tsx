@@ -1,19 +1,18 @@
-import React, { useContext, useEffect } from 'react'
 import { Container } from '@mui/material'
+import React, { useContext, useEffect } from 'react'
+
+import { getAllPages } from 'services/pages'
 
 import { StyledHeader } from 'Components/Header/style'
+import { MainMenuDesktop } from 'Components/MainMenuDesktop'
+
 import { ACTION } from 'Contexts/actions'
 import { StoreContext } from 'Contexts/store'
-
-import { MainMenuDesktop } from 'Components/MainMenuDesktop'
-import { getAllPages } from 'services/pages'
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
   const { state, dispatch } = useContext(StoreContext)
-
-  console.log('state', state)
 
   useEffect(() => {
     if (!Boolean(state.mainMenu.length)) {

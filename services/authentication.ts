@@ -1,6 +1,5 @@
-import { signInWithPopup, googleAuthProvider, googleAuth } from 'services/firebase'
-
-import { checkUserForAdminRights, User } from 'services/user'
+import { googleAuth, googleAuthProvider, signInWithPopup } from 'services/firebase'
+import { User, checkUserForAdminRights } from 'services/user'
 
 const signInWithGoogle = async () => {
   const result = await signInWithPopup(googleAuth, googleAuthProvider)

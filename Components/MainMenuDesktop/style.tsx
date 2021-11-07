@@ -13,7 +13,6 @@ const StyledMainMenuDesktopItem = styled.li`
   a {
     font-size: 16px;
     font-weight: 800;
-    text-transform: capitalize;
     color: #1e4b57;
     padding: 40px 20px;
     display: block;

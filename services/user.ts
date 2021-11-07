@@ -1,5 +1,6 @@
 import { COLLECTION } from 'CONFIG'
-import { collection, getDocs, where, query } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+
 import { firestore } from 'services/firebase'
 
 export type User = {

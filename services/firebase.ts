@@ -1,9 +1,8 @@
-import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
-import { getFirestore } from 'firebase/firestore'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
-
 import { CONFIG } from 'CONFIG'
+import { getAnalytics } from 'firebase/analytics'
+import { initializeApp } from 'firebase/app'
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseApp = initializeApp(CONFIG.firebaseConfig)
 

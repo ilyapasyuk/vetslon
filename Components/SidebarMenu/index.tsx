@@ -1,7 +1,7 @@
-import React from 'react'
 import { Tooltip } from '@mui/material'
+import React from 'react'
+import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { ClientPageType } from 'services/pages'
 
 import { StyledMenu, StyledMenuItem, StyledMenuLink, StyledMenuOnClickButton } from './style'
@@ -17,7 +17,9 @@ const SidebarMenu = ({ menu, onClick, isShowOnClickArea = true }: SidebarMenuPro
     <StyledMenu>
       {menu.map(menuItem => (
         <StyledMenuItem key={menuItem.url}>
-          <StyledMenuLink href={menuItem.url}>{menuItem.title}</StyledMenuLink>
+          <Tooltip title="Перейти" arrow placement="top">
+            <StyledMenuLink href={menuItem.url}>{menuItem.title}</StyledMenuLink>
+          </Tooltip>
           {isShowOnClickArea && (
             <Tooltip arrow title={menuItem.isAvailable ? 'Скрыть' : 'Показать'} placement="top">
               <StyledMenuOnClickButton
@@ -27,7 +29,7 @@ const SidebarMenu = ({ menu, onClick, isShowOnClickArea = true }: SidebarMenuPro
                   }
                 }}
               >
-                {menuItem.isAvailable ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                {menuItem.isAvailable ? <AiOutlineEyeInvisible /> : <AiFillEye />}
               </StyledMenuOnClickButton>
             </Tooltip>
           )}

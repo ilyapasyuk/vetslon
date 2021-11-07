@@ -1,11 +1,13 @@
-import { Layout } from 'Components/Layout'
-import { AdminMainPage } from 'Containers/AdminMainPage'
-import { ACTION } from 'Contexts/actions'
-import { StoreContext } from 'Contexts/store'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import { signInWithGoogle } from 'services/authentication'
-import { getUser, User } from 'services/user'
+
+import { AdminMainPage } from 'Containers/AdminMainPage'
+
+import { LayoutForClients } from 'Components/LayoutForClients'
+
+import { ACTION } from 'Contexts/actions'
+import { StoreContext } from 'Contexts/store'
 
 interface AdminProps {}
 
@@ -13,17 +15,6 @@ const Admin = ({}: AdminProps) => {
   const { state, dispatch } = useContext(StoreContext)
 
   const { user } = state
-
-  const init = async () => {
-    const user = await getUser()
-    if (user) {
-      dispatch({ action: ACTION.SET_USER, data: user })
-    }
-  }
-
-  useEffect(() => {
-    init()
-  }, [])
 
   const logIn = async () => {
     const user = await signInWithGoogle()
@@ -35,9 +26,9 @@ const Admin = ({}: AdminProps) => {
   }
 
   return (
-    <Layout title="Настройки">
+    <LayoutForClients title="Настройки">
       {user?.isAdmin ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
-    </Layout>
+    </LayoutForClients>
   )
 }
 

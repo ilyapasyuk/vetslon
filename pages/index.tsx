@@ -2,14 +2,14 @@ import type { NextPageContext } from 'next'
 
 import { IGlobalInfo } from 'services/clinic'
 
-import { Layout } from 'Components/Layout'
+import { LayoutForClients } from 'Components/LayoutForClients'
 
 interface HomeProps {
   globalInfo: IGlobalInfo
 }
 
 const Home = ({ globalInfo }: HomeProps) => {
-  return <Layout title="СЛОН">123</Layout>
+  return <LayoutForClients title="СЛОН">123</LayoutForClients>
 }
 
 export async function getStaticProps(context: NextPageContext) {

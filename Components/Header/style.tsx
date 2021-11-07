@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import bgMainMenu from '../../public/header_shape.png'
 
 const StyledHeader = styled.div`

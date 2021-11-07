@@ -1,6 +1,6 @@
+import { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { LinkProps } from 'next/link'
 
 interface ActiveLinkProps extends LinkProps {
   activeClassName: string
@@ -17,12 +17,27 @@ const ActiveLink = ({ activeClassName, ...props }: ActiveLinkProps) => {
     router.push(props.href)
   }
 
+  const getActiveClassName = (): string => {
+    const activeClassName: string = 'StyledMainMenuDesktopItem_active'
+    if (router.asPath === props.href) {
+      return activeClassName
+    }
+
+    switch (router.asPath) {
+      case props.href:
+      case `/${props.href}`:
+        return activeClassName
+      default:
+        return ''
+    }
+  }
+
   return (
     <a
       // @ts-ignore
       href={props.href}
       onClick={handleClick}
-      className={router.asPath === `/${props.href}` ? 'StyledMainMenuDesktopItem_active' : ''}
+      className={getActiveClassName()}
     >
       {props.children}
     </a>

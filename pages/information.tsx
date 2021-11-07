@@ -1,10 +1,11 @@
-import { Layout } from 'Components/Layout'
 import React from 'react'
+
+import { LayoutForClients } from 'Components/LayoutForClients'
 
 interface InfoProps {}
 
 const Info = ({}: InfoProps) => {
-  return <Layout title="Сертификаты">Info</Layout>
+  return <LayoutForClients title="Сертификаты">Info</LayoutForClients>
 }
 
 export default Info

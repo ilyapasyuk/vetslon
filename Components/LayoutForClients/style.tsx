@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+
 import bgImage from '../../public/bg.jpeg'
 
 const StyleLayout = styled.div`

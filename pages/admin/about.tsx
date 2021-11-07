@@ -1,23 +1,19 @@
 import { Container } from '@mui/material'
 import React from 'react'
 
-import { AdminServicesPage } from 'Containers/AdminServicesPage'
-
 import { LayoutForAdmin } from 'Components/LayoutForAdmin'
 import { LayoutForClients } from 'Components/LayoutForClients'
 
 interface ServicesProps {}
 
-const ServicesPage = ({}: ServicesProps) => {
+const Services = ({}: ServicesProps) => {
   return (
-    <LayoutForClients title="Услуги и цены">
+    <LayoutForClients title="О нас">
       <Container>
-        <LayoutForAdmin>
-          <AdminServicesPage />
-        </LayoutForAdmin>
+        <LayoutForAdmin>о нас</LayoutForAdmin>
       </Container>
     </LayoutForClients>
   )
 }
 
-export default ServicesPage
+export default Services
