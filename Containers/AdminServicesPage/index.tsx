@@ -12,14 +12,20 @@ import React, { useContext, useEffect, useState } from 'react'
 import { MdExpandMore } from 'react-icons/md'
 
 import {
+  ClientServiceType,
   ServerServiceCategoriesType,
+  ServerServiceType,
+  createService,
   createServicesCategory,
+  deleteService,
   getAllServices,
   getAllServicesCategories,
+  updateService,
 } from 'services/services'
 
 import { StyledCategoriesList } from 'Containers/AdminServicesPage/style'
 
+import { ServicesList } from 'Components/ServicesList'
 import { Title } from 'Components/Title'
 
 import { ACTION } from 'Contexts/actions'
@@ -46,12 +52,77 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
     setServicesCategory({ title: '' })
   }
 
+  const updateServiceInFirebase = async (updatedService: ClientServiceType): Promise<void> => {
+    await updateService(updatedService)
+    await init()
+  }
+
+  const deleteServiceInFirebase = async (serviceForDelete: ClientServiceType): Promise<void> => {
+    await deleteService(serviceForDelete)
+    await init()
+  }
+
+  const createServiceInFirebase = async (
+    newService: ServerServiceType,
+    categoryId: string,
+  ): Promise<void> => {
+    const preparedService: ServerServiceType = {
+      title: newService.title,
+      categoryId: categoryId,
+      price: newService.price,
+    }
+
+    await createService(preparedService)
+    await init()
+  }
+
   useEffect(() => {
     init()
   }, [])
 
   return (
     <div>
+      <Card variant="outlined">
+        <CardContent>
+          <Title type="h4">Категории и услуги</Title>
+
+          {state.servicesCategories.map(category => {
+            const preparedServices = state.services.filter(
+              service => service.categoryId === category.id,
+            )
+
+            return (
+              <Accordion key={category.id}>
+                <AccordionSummary
+                  expandIcon={<MdExpandMore />}
+                  aria-controls={category.id}
+                  id={category.id}
+                >
+                  {category.title}
+                </AccordionSummary>
+
+                <AccordionDetails>
+                  <ServicesList
+                    list={preparedServices}
+                    onUpdate={updatedService => {
+                      updateServiceInFirebase(updatedService)
+                    }}
+                    onCreate={newServicesCategory =>
+                      createServiceInFirebase(newServicesCategory, category.id)
+                    }
+                    onDelete={serviceCategoryForDelete =>
+                      deleteServiceInFirebase(serviceCategoryForDelete)
+                    }
+                  />
+                </AccordionDetails>
+              </Accordion>
+            )
+          })}
+        </CardContent>
+      </Card>
+
+      <br />
+
       <Card variant="outlined">
         <CardContent>
           <Title type="h4">Категории услуг</Title>
@@ -101,24 +172,6 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
       </Card>
 
       <br />
-
-      {state.servicesCategories.map(category => {
-        return (
-          <Accordion key={category.id}>
-            <AccordionSummary
-              expandIcon={<MdExpandMore />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              {category.title}
-            </AccordionSummary>
-            <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-              ex, sit amet blandit leo lobortis eget.
-            </AccordionDetails>
-          </Accordion>
-        )
-      })}
     </div>
   )
 }

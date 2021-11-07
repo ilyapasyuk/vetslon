@@ -21,7 +21,7 @@ const StyledH2 = styled.h2`
 
 const StyledH3 = styled.h3`
   ${globalTitleStyle};
-  font-size: 34px;
+  font-size: 28px;
   margin-bottom: 18px;
 `
 
