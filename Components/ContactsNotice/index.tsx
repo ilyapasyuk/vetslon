@@ -1,19 +1,17 @@
-import React from 'react'
 import { Container } from '@mui/material'
-
+import { CONFIG } from 'CONFIG'
+import React from 'react'
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
-
-import { CONFIG } from 'CONFIG'
 
 import { IGlobalInfo } from 'services/clinic'
 
 import {
   StyledContactNotice,
-  StyledContactNoticeWrapper,
   StyledContactNoticePhone,
-  StyledContactNoticeSocialNetworks,
   StyledContactNoticeSocialNetwork,
+  StyledContactNoticeSocialNetworks,
+  StyledContactNoticeWrapper,
 } from './styles'
 
 interface ContactsNoticeProps extends IGlobalInfo {}

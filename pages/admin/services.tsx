@@ -1,6 +1,8 @@
 import { Container } from '@mui/material'
 import React from 'react'
 
+import { AdminServicesPage } from 'Containers/AdminServicesPage'
+
 import { LayoutForAdmin } from 'Components/LayoutForAdmin'
 import { LayoutForClients } from 'Components/LayoutForClients'
 
@@ -10,7 +12,9 @@ const ServicesPage = ({}: ServicesProps) => {
   return (
     <LayoutForClients title="Услуги и цены">
       <Container>
-        <LayoutForAdmin>Services</LayoutForAdmin>
+        <LayoutForAdmin>
+          <AdminServicesPage />
+        </LayoutForAdmin>
       </Container>
     </LayoutForClients>
   )

@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-
 import { MEDIA_QUERY } from 'Constants/mediaQueries'
+import styled from 'styled-components'
 
 const StyledMenu = styled.ul`
   border: 1px solid #ebebeb;

@@ -1,12 +1,11 @@
-import React from 'react'
-import Head from 'next/head'
-
 import { CONFIG } from 'CONFIG'
+import Head from 'next/head'
+import React from 'react'
 
 import { ContactsNotice } from 'Components/ContactsNotice'
 import { Header } from 'Components/Header'
 
-import { StyleLayout, GlobalStyles } from './style'
+import { GlobalStyles, StyleLayout } from './style'
 
 interface LayoutProps {
   children: React.ReactNode

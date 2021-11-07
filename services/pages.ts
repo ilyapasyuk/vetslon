@@ -1,8 +1,7 @@
-import { collection, getDocs, setDoc, doc, query, orderBy } from 'firebase/firestore'
+import { COLLECTION } from 'CONFIG'
+import { collection, doc, getDocs, orderBy, query, setDoc } from 'firebase/firestore'
 
 import { firestore } from 'services/firebase'
-
-import { COLLECTION } from 'CONFIG'
 
 export interface ServerPageType {
   title: string

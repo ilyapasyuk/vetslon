@@ -1,6 +1,7 @@
-import { LayoutForAdmin } from 'Components/LayoutForAdmin'
-import React, { useContext, useEffect } from 'react'
 import { Container } from '@mui/material'
+import React, { useContext } from 'react'
+
+import { LayoutForAdmin } from 'Components/LayoutForAdmin'
 
 import { StoreContext } from 'Contexts/store'
 

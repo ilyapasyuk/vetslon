@@ -1,7 +1,8 @@
 import { Container } from '@mui/material'
+import React from 'react'
+
 import { LayoutForAdmin } from 'Components/LayoutForAdmin'
 import { LayoutForClients } from 'Components/LayoutForClients'
-import React from 'react'
 
 interface OffersProps {}
 

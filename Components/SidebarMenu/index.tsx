@@ -1,7 +1,7 @@
-import React from 'react'
 import { Tooltip } from '@mui/material'
+import React from 'react'
+import { AiFillEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { ClientPageType } from 'services/pages'
 
 import { StyledMenu, StyledMenuItem, StyledMenuLink, StyledMenuOnClickButton } from './style'
@@ -29,7 +29,7 @@ const SidebarMenu = ({ menu, onClick, isShowOnClickArea = true }: SidebarMenuPro
                   }
                 }}
               >
-                {menuItem.isAvailable ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                {menuItem.isAvailable ? <AiOutlineEyeInvisible /> : <AiFillEye />}
               </StyledMenuOnClickButton>
             </Tooltip>
           )}

@@ -1,9 +1,10 @@
-import { ActiveLink } from 'Components/ActiveLink'
 import React from 'react'
 
-import { StyledMainMenuDesktopItem, StyledMainMenuDesktopList } from './style'
-
 import { ClientPageType } from 'services/pages'
+
+import { ActiveLink } from 'Components/ActiveLink'
+
+import { StyledMainMenuDesktopItem, StyledMainMenuDesktopList } from './style'
 
 interface MainMenuDesktopProps {
   menu: ClientPageType[]

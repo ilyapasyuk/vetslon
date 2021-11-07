@@ -1,7 +1,9 @@
-import { ACTION } from 'Contexts/actions'
-import React, { createContext, Dispatch, ReactNode, useReducer } from 'react'
+import React, { Dispatch, ReactNode, createContext, useReducer } from 'react'
+
 import { ClientPageType } from 'services/pages'
 import { User } from 'services/user'
+
+import { ACTION } from 'Contexts/actions'
 
 export interface Store {
   user: User | undefined

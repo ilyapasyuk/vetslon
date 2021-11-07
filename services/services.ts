@@ -1,5 +1,6 @@
 import { COLLECTION } from 'CONFIG'
 import { collection, getDocs } from 'firebase/firestore'
+
 import { firestore } from 'services/firebase'
 
 const getAllServices = async () => {
