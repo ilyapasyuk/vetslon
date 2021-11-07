@@ -1,5 +1,5 @@
-import { Grid } from '@mui/material'
-import React, { useContext, useEffect } from 'react'
+import { Grid, Snackbar } from '@mui/material'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { ClientPageType, getAllPages, updatePage } from 'services/pages'
 import { getUser } from 'services/user'
@@ -15,6 +15,7 @@ interface LayoutForAdminProps {
 
 const LayoutForAdmin = ({ children }: LayoutForAdminProps) => {
   const { state, dispatch } = useContext(StoreContext)
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false)
 
   const preparedMenu: ClientPageType[] = state.mainMenu.map(menuItem => ({
     ...menuItem,
@@ -44,6 +45,12 @@ const LayoutForAdmin = ({ children }: LayoutForAdminProps) => {
 
     await updatePage(updatedPage)
     await getSitePagesFromFirebase()
+
+    setShowSuccessMessage(true)
+
+    setTimeout(() => {
+      setShowSuccessMessage(false)
+    }, 3000)
   }
 
   return (
@@ -57,6 +64,7 @@ const LayoutForAdmin = ({ children }: LayoutForAdminProps) => {
       <Grid item xs={12} sm={8}>
         {children}
       </Grid>
+      <Snackbar open={showSuccessMessage} message="Сохранено" />
     </Grid>
   )
 }

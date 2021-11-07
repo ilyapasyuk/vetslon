@@ -1,6 +1,7 @@
 import React, { Dispatch, ReactNode, createContext, useReducer } from 'react'
 
 import { ClientPageType } from 'services/pages'
+import { ClientServiceCategoriesType, ClientServiceType } from 'services/services'
 import { User } from 'services/user'
 
 import { ACTION } from 'Contexts/actions'
@@ -8,11 +9,15 @@ import { ACTION } from 'Contexts/actions'
 export interface Store {
   user: User | undefined
   mainMenu: ClientPageType[]
+  servicesCategories: ClientServiceCategoriesType[]
+  services: ClientServiceType[]
 }
 
 const DEFAULT_STORE: Store = {
   user: undefined,
   mainMenu: [],
+  servicesCategories: [],
+  services: [],
 }
 
 export type DispatchType = {
@@ -35,6 +40,10 @@ const reducer = (currentStore: Store, payload: DispatchType): Store => {
       return { ...currentStore, mainMenu: payload.data }
     case ACTION.SET_USER:
       return { ...currentStore, user: payload.data }
+    case ACTION.SET_SERVICES_CATEGORIES:
+      return { ...currentStore, servicesCategories: payload.data }
+    case ACTION.SET_SERVICES:
+      return { ...currentStore, services: payload.data }
     default:
       return currentStore
   }

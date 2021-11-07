@@ -14,8 +14,6 @@ interface HeaderProps {}
 const Header = ({}: HeaderProps) => {
   const { state, dispatch } = useContext(StoreContext)
 
-  console.log('state', state)
-
   useEffect(() => {
     if (!Boolean(state.mainMenu.length)) {
       getSitePagesFromFirebase()
