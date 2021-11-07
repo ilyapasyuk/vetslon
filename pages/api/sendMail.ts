@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const userData = JSON.parse(req.body)
+  console.log('userData', userData)
 
   const nodemailer = require('nodemailer')
 
@@ -20,7 +21,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     to: process.env.SEND_TO,
     subject: `Message From ${userData.email}`,
     text: 'Заявка на парковку',
-    html: `<div>dateIn: ${userData.dateIn}</div><p>dateOut: ${userData.dateOut}</p><p>fullName: ${userData.fullName}</p><p>autoNumber: ${userData.autoNumber}</p><p>phone: ${userData.phone}</p><p>email: ${userData.email}</p>`,
+    // html: `<div>dateIn: ${userData.dateIn}</div><p>dateOut: ${userData.dateOut}</p><p>fullName: ${userData.fullName}</p><p>autoNumber: ${userData.autoNumber}</p><p>phone: ${userData.phone}</p><p>email: ${userData.email}</p>`,
   }
 
   transporter.sendMail(mailData, function (err: any, info: any) {
