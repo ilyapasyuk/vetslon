@@ -21,7 +21,7 @@ const DEFAULT_SERVICE: ServerServiceType = {
   categoryId: '',
 }
 
-const ServicesList = ({ list, onUpdate, onCreate, onDelete }: ServicesListProps) => {
+const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesListProps) => {
   const [stateList, setStateList] = useState<ClientServiceType[]>([])
   const [newService, setNewService] = useState<ServerServiceType>(DEFAULT_SERVICE)
 
@@ -125,4 +125,4 @@ const ServicesList = ({ list, onUpdate, onCreate, onDelete }: ServicesListProps)
   )
 }
 
-export { ServicesList }
+export { ServicesListEditor }

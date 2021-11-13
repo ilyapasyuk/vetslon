@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
     bottom: -13px;
     width: 100%;
     height: 58px;
-    z-index: -1;
+    z-index: 1;
     background-repeat: repeat;
     background-position: center;
     background-image: url(${bgMainMenu.src});

@@ -1,3 +1,4 @@
+import { MEDIA_QUERY } from 'Constants/mediaQueries'
 import styled from 'styled-components'
 
 const StyledMainMenuDesktopList = styled.ul`
@@ -14,13 +15,17 @@ const StyledMainMenuDesktopItem = styled.li`
     font-size: 16px;
     font-weight: 800;
     color: #1e4b57;
-    padding: 40px 20px;
+    padding: 14px 20px;
     display: block;
     line-height: 1;
     font-family: 'Nunito', sans-serif;
     text-decoration: none;
     position: relative;
     z-index: 1;
+
+    @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
+      padding: 40px 20px;
+    }
 
     &.StyledMainMenuDesktopItem_active {
       color: white;
@@ -40,12 +45,16 @@ const StyledMainMenuDesktopItem = styled.li`
       clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
       box-shadow: 0 5px 12.09px 0.91px rgb(71 51 127 / 11%);
       transition: all 0.3s ease-out 0s;
-      top: 31px;
+      top: 4px;
       margin: 0 auto;
       background: #f04336;
       border-radius: 10px 10px 20px 20px;
       opacity: 0;
       z-index: -1;
+
+      @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
+        top: 31px;
+      }
     }
   }
 `
