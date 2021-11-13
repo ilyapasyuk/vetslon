@@ -16,6 +16,14 @@ body {
 a, .button {
   transition: all 0.3s ease-out 0s;
 }
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #676666;
+  margin-bottom: 15px;
+}
 `
 
 export { GlobalStyles, StyleLayout }

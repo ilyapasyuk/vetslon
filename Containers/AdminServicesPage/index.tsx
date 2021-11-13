@@ -25,7 +25,7 @@ import {
 
 import { StyledCategoriesList } from 'Containers/AdminServicesPage/style'
 
-import { ServicesList } from 'Components/ServicesList'
+import { ServicesListEditor } from 'Components/ServicesListEditor'
 import { Title } from 'Components/Title'
 
 import { ACTION } from 'Contexts/actions'
@@ -102,7 +102,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
                 </AccordionSummary>
 
                 <AccordionDetails>
-                  <ServicesList
+                  <ServicesListEditor
                     list={preparedServices}
                     onUpdate={updatedService => {
                       updateServiceInFirebase(updatedService)

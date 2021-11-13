@@ -1,11 +1,9 @@
 import React from 'react'
 
-import { LayoutForClients } from 'Components/LayoutForClients'
+import { ServicesPage } from 'Containers/ServicesPage'
 
-interface ServicesProps {}
-
-const ServicesPage = ({}: ServicesProps) => {
-  return <LayoutForClients title="Услуги и цены">1234</LayoutForClients>
+const Services = () => {
+  return <ServicesPage />
 }
 
-export default ServicesPage
+export default Services
