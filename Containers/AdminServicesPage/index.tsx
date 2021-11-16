@@ -6,6 +6,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  Snackbar,
   TextField,
 } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
@@ -38,6 +39,20 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
   const [newServicesCategory, setServicesCategory] = useState<ServerServiceCategoriesType>({
     title: '',
   })
+  const [loadingState, setLoadingState] = useState<'pending' | 'loading' | 'success' | 'error'>(
+    'pending',
+  )
+
+  const getSnackbarMessage = () => {
+    switch (loadingState) {
+      case 'success':
+        return 'Сохранено'
+      case 'error':
+        return 'Упс, произошла ошибка, напишите разработчику'
+      default:
+        return ''
+    }
+  }
 
   const init = async () => {
     const servicesCategories = await getAllServicesCategories()
@@ -47,19 +62,43 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
   }
 
   const createCategory = async (newCategory: ServerServiceCategoriesType): Promise<void> => {
-    await createServicesCategory(newCategory)
-    await init()
-    setServicesCategory({ title: '' })
+    setLoadingState('loading')
+    try {
+      await createServicesCategory(newCategory)
+      await init()
+      setServicesCategory({ title: '' })
+    } catch (error) {
+      console.error('createCategory:', error)
+      setLoadingState('error')
+    } finally {
+      setLoadingState('success')
+    }
   }
 
   const updateServiceInFirebase = async (updatedService: ClientServiceType): Promise<void> => {
-    await updateService(updatedService)
-    await init()
+    setLoadingState('loading')
+    try {
+      await updateService(updatedService)
+      await init()
+    } catch (error) {
+      console.error('updateServiceInFirebase:', error)
+      setLoadingState('error')
+    } finally {
+      setLoadingState('success')
+    }
   }
 
   const deleteServiceInFirebase = async (serviceForDelete: ClientServiceType): Promise<void> => {
-    await deleteService(serviceForDelete)
-    await init()
+    setLoadingState('loading')
+    try {
+      await deleteService(serviceForDelete)
+      await init()
+    } catch (error) {
+      console.error('deleteServiceInFirebase:', error)
+      setLoadingState('error')
+    } finally {
+      setLoadingState('success')
+    }
   }
 
   const createServiceInFirebase = async (
@@ -73,13 +112,28 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
       isAbovePrice: newService.isAbovePrice,
     }
 
-    await createService(preparedService)
-    await init()
+    setLoadingState('pending')
+    try {
+      await createService(preparedService)
+      await init()
+    } catch (error) {
+      console.error('deleteServiceInFirebase:', error)
+    } finally {
+      setLoadingState('success')
+    }
   }
 
   useEffect(() => {
     init()
   }, [])
+
+  useEffect(() => {
+    if (loadingState === 'success') {
+      setTimeout(() => {
+        setLoadingState('pending')
+      }, 3000)
+    }
+  }, [loadingState])
 
   return (
     <div>
@@ -104,6 +158,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
 
                 <AccordionDetails>
                   <ServicesListEditor
+                    isLoading={loadingState === 'loading'}
                     list={preparedServices}
                     onUpdate={updatedService => {
                       updateServiceInFirebase(updatedService)
@@ -144,9 +199,6 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
             })}
           </StyledCategoriesList>
         </CardContent>
-        <CardActions>
-          <Button size="small">Сохранить</Button>
-        </CardActions>
       </Card>
 
       <br />
@@ -173,6 +225,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
       </Card>
 
       <br />
+      <Snackbar open={loadingState === 'success'} message={getSnackbarMessage()} />
     </div>
   )
 }
