@@ -24,6 +24,11 @@ p {
   color: #676666;
   margin-bottom: 15px;
 }
+
+.MuiContainer-root {
+  position: relative;
+  z-index: 1;
+}
 `
 
 export { GlobalStyles, StyleLayout }
