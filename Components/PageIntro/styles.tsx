@@ -4,8 +4,8 @@ interface StyledPageIntroProps {
   backgroundImage: string
 }
 
-const StyledPageIntro = styled.section`
-  background-image: url('${(props: StyledPageIntroProps) => props.backgroundImage}');
+const StyledPageIntro = styled.section<StyledPageIntroProps>`
+  background-image: url('${({ backgroundImage }) => backgroundImage}');
   padding: 115px 0;
   background-position: center;
   background-size: cover;
@@ -20,7 +20,7 @@ const StyledPageIntroTitle = styled.h1`
   line-height: 1.1;
   clip-path: polygon(0 0, 100% 0, 91% 100%, 0% 100%);
   padding: 13px 40px 13px 20px;
-  background: #f04336;
+  background: ${({ theme }) => theme.primaryColor};
   border-radius: 15px 15px 40px 15px;
   font-family: 'Nunito', sans-serif;
 `

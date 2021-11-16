@@ -7,6 +7,7 @@ export interface ServerServiceType {
   title: string
   categoryId: string
   price: number
+  isAbovePrice: boolean
 }
 
 export interface ClientServiceType extends ServerServiceType {
@@ -32,6 +33,7 @@ const getAllServices = async (): Promise<ClientServiceType[]> => {
       title: doc.get('title'),
       categoryId: doc.get('categoryId'),
       price: doc.get('price'),
+      isAbovePrice: doc.get('isAbovePrice'),
     })
   })
 

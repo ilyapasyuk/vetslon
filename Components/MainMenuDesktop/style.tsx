@@ -47,7 +47,7 @@ const StyledMainMenuDesktopItem = styled.li`
       transition: all 0.3s ease-out 0s;
       top: 4px;
       margin: 0 auto;
-      background: #f04336;
+      background: ${props => props.theme.primaryColor};
       border-radius: 10px 10px 20px 20px;
       opacity: 0;
       z-index: -1;

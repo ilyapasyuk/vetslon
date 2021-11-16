@@ -1,4 +1,4 @@
-import { Button, IconButton, TextField } from '@mui/material'
+import { Checkbox, IconButton, TextField, Tooltip } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { MdAdd, MdDeleteOutline, MdSave } from 'react-icons/md'
 
@@ -19,6 +19,7 @@ const DEFAULT_SERVICE: ServerServiceType = {
   title: '',
   price: 100,
   categoryId: '',
+  isAbovePrice: false,
 }
 
 const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesListProps) => {
@@ -56,6 +57,16 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
                     updateService({ ...service, title: event.target.value })
                   }}
                 />
+              </div>
+              <div>
+                <Tooltip title="Цена от" arrow placement="top">
+                  <Checkbox
+                    defaultChecked={service.isAbovePrice}
+                    onChange={event => {
+                      updateService({ ...service, isAbovePrice: event.target.checked })
+                    }}
+                  />
+                </Tooltip>
               </div>
               <div>
                 <TextField
@@ -98,6 +109,16 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
               setNewService({ ...newService, title: event.target.value })
             }}
           />
+        </div>
+        <div>
+          <Tooltip title="Цена от" arrow placement="top">
+            <Checkbox
+              defaultChecked={newService.isAbovePrice}
+              onChange={event => {
+                setNewService({ ...newService, isAbovePrice: event.target.checked })
+              }}
+            />
+          </Tooltip>
         </div>
         <div>
           <TextField
