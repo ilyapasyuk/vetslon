@@ -70,6 +70,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
       title: newService.title,
       categoryId: categoryId,
       price: newService.price,
+      isAbovePrice: newService.isAbovePrice,
     }
 
     await createService(preparedService)
