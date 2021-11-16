@@ -28,7 +28,7 @@ const StyledServicesPage = styled.div`
 const StyledServicesPageExpandedIcon = styled.div`
   color: #fff;
   border-radius: 47% 53% 61% 39% / 38% 38% 62% 62%;
-  background: #f04336;
+  background: ${({ theme }) => theme.primaryColor};
   transition: 0.3s linear;
   width: 40px;
   height: 35px;

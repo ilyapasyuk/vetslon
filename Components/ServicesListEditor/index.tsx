@@ -1,4 +1,4 @@
-import { Button, IconButton, TextField } from '@mui/material'
+import { Checkbox, IconButton, TextField, Tooltip } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { MdAdd, MdDeleteOutline, MdSave } from 'react-icons/md'
 
@@ -13,15 +13,23 @@ interface ServicesListProps {
   onUpdate: (categoriesList: ClientServiceType) => void
   onCreate: (newService: ServerServiceType) => void
   onDelete: (newService: ClientServiceType) => void
+  isLoading: boolean
 }
 
 const DEFAULT_SERVICE: ServerServiceType = {
   title: '',
   price: 100,
   categoryId: '',
+  isAbovePrice: false,
 }
 
-const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesListProps) => {
+const ServicesListEditor = ({
+  list,
+  onUpdate,
+  onCreate,
+  onDelete,
+  isLoading,
+}: ServicesListProps) => {
   const [stateList, setStateList] = useState<ClientServiceType[]>([])
   const [newService, setNewService] = useState<ServerServiceType>(DEFAULT_SERVICE)
 
@@ -48,6 +56,7 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
             <StyledServicesListRow key={service.id}>
               <div>
                 <TextField
+                  disabled={isLoading}
                   fullWidth
                   type="text"
                   value={service.title}
@@ -58,7 +67,19 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
                 />
               </div>
               <div>
+                <Tooltip title="Цена от" arrow placement="top">
+                  <Checkbox
+                    disabled={isLoading}
+                    defaultChecked={service.isAbovePrice}
+                    onChange={event => {
+                      updateService({ ...service, isAbovePrice: event.target.checked })
+                    }}
+                  />
+                </Tooltip>
+              </div>
+              <div>
                 <TextField
+                  disabled={isLoading}
                   fullWidth
                   type="number"
                   value={service.price}
@@ -69,12 +90,12 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
                 />
               </div>
               <div>
-                <IconButton onClick={() => onDelete(service)}>
+                <IconButton onClick={() => onDelete(service)} disabled={isLoading}>
                   <MdDeleteOutline color="#f04336" />
                 </IconButton>
               </div>
               <div>
-                <IconButton onClick={() => onUpdate(service)}>
+                <IconButton onClick={() => onUpdate(service)} disabled={isLoading}>
                   <MdSave />
                 </IconButton>
               </div>
@@ -98,6 +119,17 @@ const ServicesListEditor = ({ list, onUpdate, onCreate, onDelete }: ServicesList
               setNewService({ ...newService, title: event.target.value })
             }}
           />
+        </div>
+        <div>
+          <Tooltip title="Цена от" arrow placement="top">
+            <Checkbox
+              disabled={isLoading}
+              defaultChecked={newService.isAbovePrice}
+              onChange={event => {
+                setNewService({ ...newService, isAbovePrice: event.target.checked })
+              }}
+            />
+          </Tooltip>
         </div>
         <div>
           <TextField
