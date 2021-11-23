@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { LayoutForClients } from 'Components/LayoutForClients'
+import { AboutPage } from 'Containers/AboutPage'
 
 interface ServicesProps {}
 
 const Services = ({}: ServicesProps) => {
-  return <LayoutForClients title="О нас">о нас</LayoutForClients>
+  return <AboutPage />
 }
 
 export default Services

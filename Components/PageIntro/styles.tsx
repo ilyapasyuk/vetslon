@@ -9,7 +9,6 @@ const StyledPageIntro = styled.section<StyledPageIntroProps>`
   padding: 115px 0;
   background-position: center;
   background-size: cover;
-  margin-bottom: 110px;
 `
 
 const StyledPageIntroTitle = styled.h1`
