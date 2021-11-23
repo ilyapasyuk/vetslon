@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+const StyledServicesPageWrapper = styled.div`
+  padding-top: 110px;
+`
+
 const StyledServicesPage = styled.div`
   .StyledAccordionAccordion {
     margin-bottom: 11px;
@@ -57,6 +61,7 @@ const StyledServicesPageRow = styled.div`
 `
 
 export {
+  StyledServicesPageWrapper,
   StyledServicesPage,
   StyledServicesPageList,
   StyledServicesPageRow,
