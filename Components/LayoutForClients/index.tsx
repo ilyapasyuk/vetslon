@@ -1,9 +1,15 @@
 import { CONFIG } from 'CONFIG'
 import Head from 'next/head'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+
+import { getAllPages } from 'services/pages'
 
 import { ContactsNotice } from 'Components/ContactsNotice'
+import { Footer } from 'Components/Footer'
 import { Header } from 'Components/Header'
+
+import { ACTION } from 'Contexts/actions'
+import { StoreContext } from 'Contexts/store'
 
 import { GlobalStyles, StyleLayout } from './style'
 
@@ -13,6 +19,19 @@ interface LayoutProps {
 }
 
 const LayoutForClients = ({ children, title }: LayoutProps) => {
+  const { state, dispatch } = useContext(StoreContext)
+
+  useEffect(() => {
+    if (!Boolean(state.mainMenu.length)) {
+      getSitePagesFromFirebase()
+    }
+  }, [state.mainMenu])
+
+  const getSitePagesFromFirebase = async () => {
+    const pages = await getAllPages()
+    dispatch({ action: ACTION.SET_PAGES, data: pages })
+  }
+
   return (
     <StyleLayout>
       <Head>
@@ -32,8 +51,9 @@ const LayoutForClients = ({ children, title }: LayoutProps) => {
         email={CONFIG.email}
         slogan={CONFIG.slogan}
       />
-      <Header />
+      <Header menu={state.mainMenu} />
       {children}
+      <Footer menu={state.mainMenu} />
       <GlobalStyles />
     </StyleLayout>
   )
