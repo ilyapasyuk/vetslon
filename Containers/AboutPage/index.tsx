@@ -98,6 +98,28 @@ const AboutPage = ({}: AboutPageProps) => {
           </Grid>
         </StyledAboutPageWrapper>
       </Container>
+
+      <Surface>
+        <Container>
+          <StyledAboutPageWrapper>
+            <Grid container spacing={5}>
+              <Grid item xs={12} sm={6} md={6}>
+                <Title type="h4">
+                  Доверяя нам здоровье ваших питомцев, вы выбираете ответственных профессионалов и
+                  качественное обслуживание.
+                </Title>
+                <p>
+                  С любовью и заботой о здоровье и красоте питомцев, предлагаем свою дружбу, а
+                  дружба — понятие круглосуточное! Мы всегда рады Вам помочь!
+                </p>
+              </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                TODO: Gallery
+              </Grid>
+            </Grid>
+          </StyledAboutPageWrapper>
+        </Container>
+      </Surface>
     </LayoutForClients>
   )
 }
