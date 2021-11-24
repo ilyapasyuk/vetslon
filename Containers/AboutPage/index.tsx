@@ -77,8 +77,16 @@ const AboutPage = ({}: AboutPageProps) => {
           <Grid container spacing={5}>
             {BENEFITS.map(benefit => (
               <Grid key={benefit.title} item xs={6} sm={4} md={3}>
-                <Card style={{ height: '100%' }} variant="outlined">
-                  <CardContent>
+                <Card
+                  style={{
+                    borderRadius: 15,
+                    boxShadow: '0px 92px 139.16px 2.84px rgb(0 0 0 / 5%)',
+                    border: 0,
+                    height: '100%',
+                  }}
+                  variant="outlined"
+                >
+                  <CardContent style={{ padding: 30 }}>
                     <StyledAboutWhyWeTitle>
                       <Title type="XXL">{benefit.title}</Title>
                     </StyledAboutWhyWeTitle>
@@ -90,6 +98,28 @@ const AboutPage = ({}: AboutPageProps) => {
           </Grid>
         </StyledAboutPageWrapper>
       </Container>
+
+      <Surface>
+        <Container>
+          <StyledAboutPageWrapper>
+            <Grid container spacing={5}>
+              <Grid item xs={12} sm={6} md={6}>
+                <Title type="h4">
+                  Доверяя нам здоровье ваших питомцев, вы выбираете ответственных профессионалов и
+                  качественное обслуживание.
+                </Title>
+                <p>
+                  С любовью и заботой о здоровье и красоте питомцев, предлагаем свою дружбу, а
+                  дружба — понятие круглосуточное! Мы всегда рады Вам помочь!
+                </p>
+              </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                TODO: Gallery
+              </Grid>
+            </Grid>
+          </StyledAboutPageWrapper>
+        </Container>
+      </Surface>
     </LayoutForClients>
   )
 }
