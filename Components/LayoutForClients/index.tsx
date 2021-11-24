@@ -2,7 +2,9 @@ import { CONFIG } from 'CONFIG'
 import Head from 'next/head'
 import React, { useContext, useEffect } from 'react'
 
+import { getPhotos } from 'services/instagram'
 import { getAllPages } from 'services/pages'
+import { getAllServicesCategories } from 'services/services'
 
 import { ContactsNotice } from 'Components/ContactsNotice'
 import { Footer } from 'Components/Footer'
@@ -21,15 +23,33 @@ interface LayoutProps {
 const LayoutForClients = ({ children, title }: LayoutProps) => {
   const { state, dispatch } = useContext(StoreContext)
 
+  console.log('state', state)
+
   useEffect(() => {
     if (!Boolean(state.mainMenu.length)) {
       getSitePagesFromFirebase()
+      getPhotosFromInstagram()
+      getServicesFromFirebase()
     }
   }, [state.mainMenu])
 
   const getSitePagesFromFirebase = async () => {
     const pages = await getAllPages()
     dispatch({ action: ACTION.SET_PAGES, data: pages })
+  }
+
+  const getServicesFromFirebase = async () => {
+    const servicesCategories = await getAllServicesCategories()
+    dispatch({ action: ACTION.SET_SERVICES_CATEGORIES, data: servicesCategories })
+  }
+
+  const getPhotosFromInstagram = async () => {
+    const photos = await getPhotos('ilyapasyuk')
+    console.log('photos', photos)
+
+    if (photos?.length) {
+      dispatch({ action: ACTION.SET_INSTAGRAM_PHOTOS, data: photos })
+    }
   }
 
   return (
@@ -53,7 +73,7 @@ const LayoutForClients = ({ children, title }: LayoutProps) => {
       />
       <Header menu={state.mainMenu} />
       {children}
-      <Footer menu={state.mainMenu} />
+      <Footer menu={state.mainMenu} services={state.servicesCategories} />
       <GlobalStyles />
     </StyleLayout>
   )

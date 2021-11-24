@@ -45,7 +45,7 @@ const AboutPage = ({}: AboutPageProps) => {
     <LayoutForClients title="О нас">
       <PageIntro backgroundImage={dogImage.src} title="О нас" />
       <Surface>
-        <Container>
+        <Container maxWidth="md">
           <StyledAboutPageWrapper>
             <p>
               Круглосуточная ветеринарная выездная служба Вет Слон - это скорая служба помощи Вашим
