@@ -28,10 +28,15 @@ const LayoutForClients = ({ children, title }: LayoutProps) => {
   useEffect(() => {
     if (!Boolean(state.mainMenu.length)) {
       getSitePagesFromFirebase()
-      getPhotosFromInstagram()
       getServicesFromFirebase()
     }
   }, [state.mainMenu])
+
+  // useEffect(() => {
+  //   if (!Boolean(state.mainMenu.length)) {
+  //     getPhotosFromInstagram()
+  //   }
+  // }, [state.instagramPhotos])
 
   const getSitePagesFromFirebase = async () => {
     const pages = await getAllPages()
