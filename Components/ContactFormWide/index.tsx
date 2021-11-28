@@ -1,4 +1,5 @@
 import { Snackbar } from '@mui/material'
+import { sendMessageToGroup } from 'pages/telegram'
 import React, { useState } from 'react'
 
 import { Request, createRequest } from 'services/requests'
@@ -22,6 +23,7 @@ const ContactFormWide = ({}: ContactFormWideProps) => {
 
     try {
       await createRequest(request)
+      await sendMessageToGroup(`${request.name}: ${request.phoneNumber}`)
       setMessageStatus('success')
     } catch (error) {
       console.error(error)
