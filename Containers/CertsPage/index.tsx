@@ -5,12 +5,15 @@ import cert3 from 'public/certs/IMG-506d893ae3a1de82c8602bf26f27aaf8-V.jpeg'
 import cert4 from 'public/certs/Scan0015.jpeg'
 import cert5 from 'public/certs/Scan0032.jpeg'
 import cert1 from 'public/certs/image-14-01-21-12-10.jpeg'
-import React from 'react'
+import React, { useState } from 'react'
+import { IoIosClose } from 'react-icons/io'
 
 import {
   StyledCert,
   StyledCerts,
   StyledCertsPageWrapper,
+  StyledOpenedCert,
+  StyledOpenedCertClose,
   StyledShowMoreArea,
 } from 'Containers/CertsPage/style'
 
@@ -25,9 +28,20 @@ const pageTitle: string = 'Сертификаты'
 const certs: string[] = [cert1.src, cert3.src, cert4.src, cert2.src, cert5.src]
 
 const CertsPage = ({}: CertsPageProps) => {
+  const [openedCert, setOpenedCert] = useState<string | null>(null)
+
   return (
     <LayoutForClients title={pageTitle}>
       <PageIntro backgroundImage={dogImage.src} title={pageTitle} />
+
+      {openedCert && (
+        <StyledOpenedCert>
+          <img src={openedCert} alt="Сертификат" />
+          <StyledOpenedCertClose onClick={() => setOpenedCert(null)}>
+            <IoIosClose />
+          </StyledOpenedCertClose>
+        </StyledOpenedCert>
+      )}
 
       <Surface>
         <Container>
@@ -37,7 +51,7 @@ const CertsPage = ({}: CertsPageProps) => {
                 <div className="cert" key={cert}>
                   <StyledCert>
                     <StyledShowMoreArea className="area">
-                      <button>Открыть</button>
+                      <button onClick={() => setOpenedCert(cert)}>Открыть</button>
                     </StyledShowMoreArea>
                     <img src={cert} alt="Сертификат" />
                   </StyledCert>

@@ -53,7 +53,7 @@ const StyledShowMoreArea = styled.div`
 
   button {
     user-select: none;
-    background: #f04336 none repeat scroll 0 0;
+    background: ${props => props.theme.primaryColor} none repeat scroll 0 0;
     border: medium none;
     border-radius: 3px;
     color: #fff;
@@ -101,4 +101,56 @@ const StyledShowMoreArea = styled.div`
   }
 `
 
-export { StyledCertsPageWrapper, StyledCerts, StyledCert, StyledShowMoreArea }
+const StyledOpenedCert = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.45);
+
+  img {
+    max-width: 80vw;
+    max-height: 80vh;
+  }
+
+  @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
+    img {
+      max-width: 50vw;
+      max-height: 80vh;
+    }
+  }
+`
+
+const StyledOpenedCertClose = styled.button`
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: black;
+
+  &:hover {
+    color: ${props => props.theme.primaryColor};
+  }
+`
+
+export {
+  StyledCertsPageWrapper,
+  StyledCerts,
+  StyledCert,
+  StyledShowMoreArea,
+  StyledOpenedCert,
+  StyledOpenedCertClose,
+}
