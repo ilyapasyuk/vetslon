@@ -17,6 +17,7 @@ import {
   StyledShowMoreArea,
 } from 'Containers/CertsPage/style'
 
+import { Button } from 'Components/Button'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
 import { Surface } from 'Components/Surface'
@@ -51,7 +52,7 @@ const CertsPage = ({}: CertsPageProps) => {
                 <div className="cert" key={cert}>
                   <StyledCert>
                     <StyledShowMoreArea className="area">
-                      <button onClick={() => setOpenedCert(cert)}>Открыть</button>
+                      <Button onClick={() => setOpenedCert(cert)}>Открыть</Button>
                     </StyledShowMoreArea>
                     <img src={cert} alt="Сертификат" />
                   </StyledCert>
