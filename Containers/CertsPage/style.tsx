@@ -112,10 +112,12 @@ const StyledOpenedCert = styled.div`
   justify-content: center;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 
   img {
     max-width: 80vw;
     max-height: 80vh;
+    cursor: default;
   }
 
   @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {

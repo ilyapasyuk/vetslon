@@ -35,9 +35,9 @@ const CertsPage = ({}: CertsPageProps) => {
       <PageIntro backgroundImage={dogImage.src} title={pageTitle} />
 
       {openedCert && (
-        <StyledOpenedCert>
+        <StyledOpenedCert onClick={() => setOpenedCert(null)}>
           <img src={openedCert} alt="Сертификат" />
-          <StyledOpenedCertClose onClick={() => setOpenedCert(null)}>
+          <StyledOpenedCertClose>
             <IoIosClose />
           </StyledOpenedCertClose>
         </StyledOpenedCert>
