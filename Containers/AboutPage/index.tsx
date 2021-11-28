@@ -8,6 +8,7 @@ import {
   StyledAboutWhyWeTitle,
 } from 'Containers/AboutPage/style'
 
+import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
 import { Surface } from 'Components/Surface'
@@ -102,7 +103,7 @@ const AboutPage = ({}: AboutPageProps) => {
       <Surface>
         <Container>
           <StyledAboutPageWrapper>
-            <Grid container spacing={5}>
+            <Grid container spacing={5} style={{ marginBottom: 50 }}>
               <Grid item xs={12} sm={6} md={6}>
                 <Title type="h4">
                   Доверяя нам здоровье ваших питомцев, вы выбираете ответственных профессионалов и
@@ -117,6 +118,7 @@ const AboutPage = ({}: AboutPageProps) => {
                 TODO: Gallery
               </Grid>
             </Grid>
+            <ContactFormWide />
           </StyledAboutPageWrapper>
         </Container>
       </Surface>

@@ -18,6 +18,7 @@ import {
 } from 'Containers/CertsPage/style'
 
 import { Button } from 'Components/Button'
+import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
 import { Surface } from 'Components/Surface'
@@ -59,6 +60,14 @@ const CertsPage = ({}: CertsPageProps) => {
                 </div>
               ))}
             </StyledCerts>
+          </StyledCertsPageWrapper>
+        </Container>
+      </Surface>
+
+      <Surface>
+        <Container>
+          <StyledCertsPageWrapper>
+            <ContactFormWide />
           </StyledCertsPageWrapper>
         </Container>
       </Surface>

@@ -1,8 +1,8 @@
 import { Snackbar } from '@mui/material'
-import { sendMessageToGroup } from 'pages/telegram'
 import React, { useState } from 'react'
 
 import { Request, createRequest } from 'services/requests'
+import { sendMessageToGroup } from 'services/telegram'
 
 import { Button } from 'Components/Button'
 import {
