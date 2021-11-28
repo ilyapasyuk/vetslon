@@ -6,6 +6,7 @@ import { MdExpandMore } from 'react-icons/md'
 import { getAllServices, getAllServicesCategories } from 'services/services'
 
 import {
+  StyledServicesContactFormWrapper,
   StyledServicesPage,
   StyledServicesPageExpandedIcon,
   StyledServicesPageList,
@@ -13,8 +14,10 @@ import {
   StyledServicesPageWrapper,
 } from 'Containers/ServicesPage/style'
 
+import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
+import { Surface } from 'Components/Surface'
 import { Title } from 'Components/Title'
 
 import { ACTION } from 'Contexts/actions'
@@ -87,6 +90,14 @@ const ServicesPage = ({}: ServicesPageProps) => {
           </StyledServicesPage>
         </StyledServicesPageWrapper>
       </Container>
+
+      <Surface>
+        <StyledServicesContactFormWrapper>
+          <Container>
+            <ContactFormWide />
+          </Container>
+        </StyledServicesContactFormWrapper>
+      </Surface>
     </LayoutForClients>
   )
 }

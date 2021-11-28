@@ -50,55 +50,6 @@ const StyledShowMoreArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  button {
-    user-select: none;
-    background: ${props => props.theme.primaryColor} none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 3px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: 1;
-    margin-bottom: 0;
-    padding: 17px 25px;
-    text-align: center;
-    text-transform: capitalize;
-    touch-action: manipulation;
-    transition: all 0.3s ease 0s;
-    vertical-align: middle;
-    white-space: nowrap;
-    font-family: 'Nunito', sans-serif;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-
-    &:hover {
-      &:before {
-        top: 0;
-      }
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      -webkit-transition-duration: 800ms;
-      transition-duration: 800ms;
-      width: 200%;
-      height: 200%;
-      top: 110%;
-      left: 50%;
-      background: #0a303a;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
-      border-radius: 50%;
-      z-index: -1;
-    }
-  }
 `
 
 const StyledOpenedCert = styled.div`

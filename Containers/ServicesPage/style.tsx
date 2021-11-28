@@ -4,6 +4,10 @@ const StyledServicesPageWrapper = styled.div`
   padding-top: 110px;
 `
 
+const StyledServicesContactFormWrapper = styled.div`
+  padding: 80px 0;
+`
+
 const StyledServicesPage = styled.div`
   .StyledAccordionAccordion {
     margin-bottom: 11px;
@@ -66,4 +70,5 @@ export {
   StyledServicesPageList,
   StyledServicesPageRow,
   StyledServicesPageExpandedIcon,
+  StyledServicesContactFormWrapper,
 }

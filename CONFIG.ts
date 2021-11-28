@@ -49,4 +49,5 @@ export enum COLLECTION {
   USERS = 'users',
   PAGES = 'pages',
   SERVICES_CATEGORIES = 'servicesCategories',
+  REQUESTS = 'requests',
 }
