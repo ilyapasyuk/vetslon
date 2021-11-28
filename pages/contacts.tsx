@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { LayoutForClients } from 'Components/LayoutForClients'
+import { ContactsPage } from 'Containers/ContactsPage'
 
 interface ContactsProps {}
 
 const Contacts = ({}: ContactsProps) => {
-  return <LayoutForClients title="Контакты">Contacts</LayoutForClients>
+  return <ContactsPage />
 }
 
 export default Contacts
