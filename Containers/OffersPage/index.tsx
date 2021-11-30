@@ -1,15 +1,17 @@
 import { Container } from '@mui/material'
 import offer1 from 'public/offers/offer_1.jpeg'
 import offer2 from 'public/offers/offer_2.jpg'
+import pugImage from 'public/pug_1.png'
 import React from 'react'
 
 import { OfferType } from 'services/offers'
 
-import { StyledOffers } from 'Containers/OffersPage/style'
+import { StyledOffers, StyledOffersWrapper } from 'Containers/OffersPage/style'
 
 import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { Offer } from 'Components/Offer'
+import { PageIntro } from 'Components/PageIntro'
 import { Surface } from 'Components/Surface'
 
 interface OffersPageProps {}
@@ -22,7 +24,7 @@ const offers: OfferType[] = [
     image: offer1.src,
   },
   {
-    title: 'Скидка за отзыв 10%',
+    title: 'Скидка 10% за отзыв',
     description:
       'На все услуги при размещении вашего честного отзыва на сервисах Яндекс.Карты или Google Карты',
     image: offer2.src,
@@ -32,16 +34,19 @@ const offers: OfferType[] = [
 const OffersPage = ({}: OffersPageProps) => {
   return (
     <LayoutForClients title="Акции">
+      <PageIntro backgroundImage={pugImage.src} title="Акции и предложения" />
       <Surface>
-        <Container>
-          <StyledOffers>
-            {offers.map(offer => (
-              <Offer key={offer.title} offer={offer} />
-            ))}
-          </StyledOffers>
+        <StyledOffersWrapper>
+          <Container>
+            <StyledOffers>
+              {offers.map(offer => (
+                <Offer key={offer.title} offer={offer} />
+              ))}
+            </StyledOffers>
 
-          <ContactFormWide />
-        </Container>
+            <ContactFormWide />
+          </Container>
+        </StyledOffersWrapper>
       </Surface>
     </LayoutForClients>
   )
