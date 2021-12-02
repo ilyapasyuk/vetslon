@@ -2,8 +2,8 @@ import { Container, Grid } from '@mui/material'
 import Image from 'next/image'
 import vasyaImage from 'public/vasya.png'
 import React, { useState } from 'react'
-import { FaHeadphones } from 'react-icons/fa'
-import { IoLocation } from 'react-icons/io'
+import { BsMailbox2 } from 'react-icons/bs'
+import { FaHeadphones, FaLocationArrow } from 'react-icons/fa'
 
 import { sendMessageToGroup } from 'services/telegram'
 
@@ -121,7 +121,7 @@ const ContactsPage = ({}: ContactsPageProps) => {
 
                   <StyledContactsInfoItem>
                     <span className="icon">
-                      <IoLocation />
+                      <FaLocationArrow />
                     </span>
                     Работаем по Санкт-Петербургу и Ленинградской области
                   </StyledContactsInfoItem>
@@ -135,7 +135,7 @@ const ContactsPage = ({}: ContactsPageProps) => {
 
                   <StyledContactsInfoItem>
                     <span className="icon">
-                      <IoLocation />
+                      <BsMailbox2 />
                     </span>
                     <a href="mailto:vetslon@bk.ru">vetslon@bk.ru</a>
                   </StyledContactsInfoItem>
