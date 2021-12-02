@@ -2,8 +2,8 @@ import { Container, Grid } from '@mui/material'
 import Image from 'next/image'
 import vasyaImage from 'public/vasya.png'
 import React, { useState } from 'react'
-import { IoLocation } from 'react-icons/all'
 import { FaHeadphones } from 'react-icons/fa'
+import { IoLocation } from 'react-icons/io'
 
 import { sendMessageToGroup } from 'services/telegram'
 
