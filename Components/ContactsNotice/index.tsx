@@ -8,10 +8,12 @@ import { IGlobalInfo } from 'services/clinic'
 
 import {
   StyledContactNotice,
+  StyledContactNoticeLeftArea,
   StyledContactNoticePhone,
   StyledContactNoticeSocialNetwork,
   StyledContactNoticeSocialNetworks,
   StyledContactNoticeWrapper,
+  StyledContactWorkingHours,
 } from './styles'
 
 interface ContactsNoticeProps extends IGlobalInfo {}
@@ -32,13 +34,13 @@ const ContactsNotice = ({ appName, phoneNumber, email, slogan }: ContactsNoticeP
     <StyledContactNotice>
       <Container>
         <StyledContactNoticeWrapper>
-          <div>Работаем: {CONFIG.workingHours}</div>
-          <div>
+          <StyledContactNoticeLeftArea>
+            <StyledContactWorkingHours>Работаем: {CONFIG.workingHours}</StyledContactWorkingHours>
             Позвоните нам:{' '}
             <StyledContactNoticePhone href={`tel:${phoneNumber}`}>
               {phoneNumber}
             </StyledContactNoticePhone>
-          </div>
+          </StyledContactNoticeLeftArea>
           <StyledContactNoticeSocialNetworks>
             {SOCIAL_NETWORKS.map(network => (
               <StyledContactNoticeSocialNetwork
