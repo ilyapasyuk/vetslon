@@ -1,5 +1,5 @@
 import { MEDIA_QUERY } from 'Constants/mediaQueries'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import bgMainMenu from '../../public/header_shape.png'
 
