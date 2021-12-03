@@ -54,7 +54,7 @@ const ContactsPage = ({}: ContactsPageProps) => {
       <Surface>
         <StyledContactsWrapper>
           <Container maxWidth="md">
-            <Grid container spacing={8}>
+            <Grid container spacing={8} style={{ marginBottom: 80 }}>
               <Grid item xs={12} sm={6} md={6}>
                 <Title type="h1">Свяжитесь с нами</Title>
                 <p>Работаем по Санкт-Петербургу и Ленинградской области</p>
@@ -143,8 +143,7 @@ const ContactsPage = ({}: ContactsPageProps) => {
               </Grid>
             </Grid>
           </Container>
-        </StyledContactsWrapper>
-        <StyledContactsWrapper>
+
           <Container>
             <ContactFormWide />
           </Container>

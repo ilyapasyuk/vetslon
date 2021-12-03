@@ -21,8 +21,14 @@ const StyledContactNoticeWrapper = styled.div`
   }
 
   @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     text-align: initial;
+  }
+`
+
+const StyledContactNoticeLeftArea = styled.div`
+  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
+    display: flex;
   }
 `
 
@@ -34,6 +40,10 @@ const StyledContactNoticePhone = styled.a`
   padding-bottom: 1px;
   border-bottom-color: rgba(10, 48, 58, 0.3);
   transition: border-bottom-color 300ms ease;
+
+  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
+    margin-left: 8px;
+  }
 
   &:hover {
     border-bottom-color: transparent;
@@ -56,10 +66,18 @@ const StyledContactNoticeSocialNetwork = styled.a`
   display: flex;
 `
 
+const StyledContactWorkingHours = styled.div`
+  @media (min-width: ${MEDIA_QUERY.SMALL_DEVICES}px) {
+    margin-right: 30px;
+  }
+`
+
 export {
   StyledContactNotice,
   StyledContactNoticeWrapper,
   StyledContactNoticePhone,
   StyledContactNoticeSocialNetworks,
   StyledContactNoticeSocialNetwork,
+  StyledContactWorkingHours,
+  StyledContactNoticeLeftArea,
 }

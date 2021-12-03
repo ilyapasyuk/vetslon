@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 interface StyledPageIntroProps {
   backgroundImage: string
@@ -9,7 +9,22 @@ const StyledPageIntro = styled.section<StyledPageIntroProps>`
   padding: 115px 0;
   background-position: center;
   background-size: cover;
+  position: relative;
 `
+
+const shake = keyframes`
+  0% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }`
 
 const StyledPageIntroTitle = styled.h1`
   display: inline-flex;
@@ -24,4 +39,20 @@ const StyledPageIntroTitle = styled.h1`
   font-family: 'Nunito', sans-serif;
 `
 
-export { StyledPageIntro, StyledPageIntroTitle }
+const StyledPageIntroShape1 = styled.img`
+  left: 44%;
+  top: 16%;
+  position: absolute;
+  z-index: 1;
+  animation: 1.5s ${shake} infinite;
+`
+
+const StyledPageIntroShape2 = styled.img`
+  position: absolute;
+  z-index: 1;
+  animation: 1.5s ${shake} infinite;
+  left: 32%;
+  top: 66%;
+`
+
+export { StyledPageIntro, StyledPageIntroTitle, StyledPageIntroShape1, StyledPageIntroShape2 }
