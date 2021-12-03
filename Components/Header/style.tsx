@@ -1,10 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import bgMainMenu from '../../public/header_shape.png'
 
 const StyledHeader = styled.div`
   background: white;
-  position: relative;
+  z-index: 2;
+  position: sticky;
+  top: 0;
 
   &:before {
     content: '';
