@@ -1,3 +1,4 @@
+import { MEDIA_QUERY } from 'Constants/mediaQueries'
 import styled, { css } from 'styled-components'
 
 import bgMainMenu from '../../public/header_shape.png'
@@ -7,6 +8,7 @@ const StyledHeader = styled.div`
   z-index: 2;
   position: sticky;
   top: 0;
+  box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
 
   &:before {
     content: '';
@@ -21,5 +23,21 @@ const StyledHeader = styled.div`
     background-image: url(${bgMainMenu.src});
   }
 `
+const StyledHeaderInner = styled.div`
+  @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
+    display: flex;
+  }
+`
 
-export { StyledHeader }
+const StyledHeaderLogo = styled.div`
+  display: none;
+
+  @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    height: 96px;
+  }
+`
+
+export { StyledHeader, StyledHeaderLogo, StyledHeaderInner }

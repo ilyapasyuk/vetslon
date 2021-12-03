@@ -1,9 +1,10 @@
 import { Container } from '@mui/material'
+import Image from 'next/image'
 import React from 'react'
 
 import { ClientPageType } from 'services/pages'
 
-import { StyledHeader } from 'Components/Header/style'
+import { StyledHeader, StyledHeaderInner, StyledHeaderLogo } from 'Components/Header/style'
 import { MainMenuDesktop } from 'Components/MainMenuDesktop'
 
 interface HeaderProps {
@@ -16,7 +17,12 @@ const Header = ({ menu }: HeaderProps) => {
   return (
     <StyledHeader>
       <Container>
-        <MainMenuDesktop menu={filteredMainMenu} />
+        <StyledHeaderInner>
+          <StyledHeaderLogo>
+            <Image width={80} height={60} src="/logo.png" alt="ВетСлон" />
+          </StyledHeaderLogo>
+          <MainMenuDesktop menu={filteredMainMenu} />
+        </StyledHeaderInner>
       </Container>
     </StyledHeader>
   )

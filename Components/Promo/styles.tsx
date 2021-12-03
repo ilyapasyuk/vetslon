@@ -29,6 +29,10 @@ const StyledPromoItem = styled.div`
   font-weight: 900;
   color: #fff;
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
   h5 {
     margin: 0;
   }
@@ -37,6 +41,12 @@ const StyledPromoItem = styled.div`
     display: block;
     text-align: center;
     height: 100%;
+    border-right: 3px solid #668d50;
+    border-bottom: 0;
+
+    &:last-child {
+      border-right: 0;
+    }
 
     h5 {
       margin-top: 20px;
