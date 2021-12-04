@@ -31,6 +31,7 @@ const StyledHeaderInner = styled.div`
 
 const StyledHeaderLogo = styled.div`
   display: none;
+  cursor: pointer;
 
   @media (min-width: ${MEDIA_QUERY.MEDIUM_DEVICES}px) {
     display: flex;

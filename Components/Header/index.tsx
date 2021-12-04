@@ -1,5 +1,6 @@
 import { Container } from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 import { ClientPageType } from 'services/pages'
@@ -19,7 +20,9 @@ const Header = ({ menu }: HeaderProps) => {
       <Container>
         <StyledHeaderInner>
           <StyledHeaderLogo>
-            <Image width={80} height={60} src="/logo.png" alt="ВетСлон" />
+            <Link href="/" passHref>
+              <Image width={80} height={60} src="/logo.png" alt="ВетСлон" />
+            </Link>
           </StyledHeaderLogo>
           <MainMenuDesktop menu={filteredMainMenu} />
         </StyledHeaderInner>

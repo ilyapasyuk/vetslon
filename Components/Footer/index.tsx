@@ -24,7 +24,9 @@ const Footer = ({ menu, services }: FooterProps) => {
           <Grid item xs={12} sm={6} md={4}>
             <Grid container spacing={4}>
               <Grid item xs={12}>
-                <Image src="/logo.png" width={100} height={85} />
+                <Link href="/" passHref>
+                  <Image src="/logo.png" alt="ВетСлон" width={100} height={85} />
+                </Link>
               </Grid>
               <Grid item xs={12}>
                 <p>{CONFIG.slogan}</p>
