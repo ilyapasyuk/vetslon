@@ -4,6 +4,7 @@ import { StyledButton } from 'Components/Button/styles'
 
 export type ButtonVariantType = {
   variant?: 'default' | 'clear'
+  size?: 'default' | 'small'
 }
 
 interface ButtonProps extends ButtonVariantType {
@@ -11,9 +12,9 @@ interface ButtonProps extends ButtonVariantType {
   onClick: () => void
 }
 
-const Button = ({ children, onClick, variant = 'default' }: ButtonProps) => {
+const Button = ({ children, onClick, variant = 'default', size = 'default' }: ButtonProps) => {
   return (
-    <StyledButton onClick={onClick} variant={variant}>
+    <StyledButton onClick={onClick} variant={variant} size={size}>
       {children}
     </StyledButton>
   )

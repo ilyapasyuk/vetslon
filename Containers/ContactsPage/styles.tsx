@@ -4,31 +4,6 @@ const StyledContactsWrapper = styled.div`
   padding: 100px 0;
 `
 
-const StyledContactsField = styled.div`
-  margin-bottom: 25px;
-
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #0a303a;
-    margin-bottom: 10px;
-    opacity: 1;
-    display: block;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    background: #f5f2eb;
-    border: none;
-    font-size: 14px;
-    padding: 15px 20px;
-    border-radius: 5px;
-    display: block;
-    font-weight: 400;
-  }
-`
-
 const StyledContactsInfo = styled.div`
   background: #f5f2eb;
   border-radius: 12px;
@@ -70,4 +45,4 @@ const StyledContactsInfoItem = styled.div`
   }
 `
 
-export { StyledContactsWrapper, StyledContactsField, StyledContactsInfo, StyledContactsInfoItem }
+export { StyledContactsWrapper, StyledContactsInfo, StyledContactsInfoItem }
