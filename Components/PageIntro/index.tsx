@@ -13,11 +13,12 @@ import {
 interface PageIntroProps {
   backgroundImage: string
   title: string
+  size?: 'default' | 'large'
 }
 
-const PageIntro = ({ backgroundImage, title }: PageIntroProps) => {
+const PageIntro = ({ backgroundImage, title, size = 'default' }: PageIntroProps) => {
   return (
-    <StyledPageIntro backgroundImage={backgroundImage}>
+    <StyledPageIntro backgroundImage={backgroundImage} size={size}>
       <StyledPageIntroShape1 src={shape01.src} />
       <StyledPageIntroShape2 src={shape02.src} />
       <Container>

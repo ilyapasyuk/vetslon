@@ -2,11 +2,12 @@ import styled, { keyframes } from 'styled-components'
 
 interface StyledPageIntroProps {
   backgroundImage: string
+  size?: 'default' | 'large'
 }
 
 const StyledPageIntro = styled.section<StyledPageIntroProps>`
   background-image: url('${({ backgroundImage }) => backgroundImage}');
-  padding: 115px 0;
+  padding: ${({ size }) => (size === 'default' ? '115px' : '200px')} 0;
   background-position: center;
   background-size: cover;
   position: relative;

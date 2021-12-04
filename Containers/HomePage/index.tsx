@@ -25,7 +25,7 @@ interface HomePageProps {}
 const HomePage = ({}: HomePageProps) => {
   return (
     <LayoutForClients title="СЛОН">
-      <PageIntro backgroundImage={slider1.src} title="ВетСЛОН" />
+      <PageIntro backgroundImage={slider1.src} title="ВетСЛОН" size={'large'} />
       <Container>
         <Promo promo={PROMO} />
       </Container>
