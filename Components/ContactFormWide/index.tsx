@@ -27,8 +27,6 @@ const ContactFormWide = ({}: ContactFormWideProps) => {
       setMessageStatus('success')
     } catch (error) {
       console.error(error)
-    } finally {
-      setMessageStatus('pending')
     }
   }
 

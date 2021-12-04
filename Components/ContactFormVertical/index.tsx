@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Snackbar } from '@mui/material'
 import React, { useState } from 'react'
 
 import { sendMessageToGroup } from 'services/telegram'
@@ -26,12 +26,14 @@ const ContactFormVertical = ({ question = '' }: ContactFormVerticalProps) => {
     message: question ? `Вопрос о ${question}: ` : '',
     phone: '',
   })
+  const [messageStatus, setMessageStatus] = useState<'pending' | 'success' | 'loading'>('pending')
 
   const handleForm = async () => {
     const message: string = `<b>Сообщение со страницы контакты:</b> <b>Имя:</b> ${contactForm.name} <b>E-mail:</b> ${contactForm.email} <b>Сообщение:</b> ${contactForm.message} <b>Телефон:</b> ${contactForm.phone}`
 
     try {
       await sendMessageToGroup(message, 'HTML')
+      setMessageStatus('success')
     } catch (error) {
       console.error(error)
     }
@@ -84,6 +86,10 @@ const ContactFormVertical = ({ question = '' }: ContactFormVerticalProps) => {
         />
       </StyledContactsField>
       <Button onClick={handleForm}>Отправить</Button>
+      <Snackbar
+        open={messageStatus === 'success'}
+        message="Заявка отправлена, мы скоро с вами свяжемся"
+      />
     </StyledContactsFormVertical>
   )
 }
