@@ -5,6 +5,7 @@ import { FcHome, FcMoneyTransfer, FcOvertime, FcReading } from 'react-icons/fc'
 import { StyledHomeWrapper } from 'Containers/HomePage/styled'
 
 import { ContactFormWide } from 'Components/ContactFormWide'
+import { HomeServices } from 'Components/HomeServices'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
 import { IPromo, Promo } from 'Components/Promo'
@@ -28,6 +29,11 @@ const HomePage = ({}: HomePageProps) => {
       <Container>
         <Promo promo={PROMO} />
       </Container>
+
+      <Container>
+        <HomeServices />
+      </Container>
+
       <Surface>
         <StyledHomeWrapper>
           <Container>

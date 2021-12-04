@@ -37,6 +37,13 @@ const StyledH4 = styled.h4`
   margin-bottom: ${(props: StyledTitleProps) => (props.indent ? '25px' : '0')};
 `
 
+const StyledH5 = styled.h5`
+  ${globalTitleStyle};
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: ${(props: StyledTitleProps) => (props.indent ? '16px' : '0')};
+`
+
 const StyledXXL = styled.h4`
   ${globalTitleStyle};
   font-size: 50px;
@@ -44,4 +51,4 @@ const StyledXXL = styled.h4`
   margin-bottom: ${(props: StyledTitleProps) => (props.indent ? '25px' : '0')};
 `
 
-export { StyledH1, StyledH2, StyledH3, StyledH4, StyledXXL }
+export { StyledH1, StyledH2, StyledH3, StyledH4, StyledXXL, StyledH5 }

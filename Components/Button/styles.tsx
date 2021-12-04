@@ -54,6 +54,15 @@ const StyledButton = styled.button<StyledButtonProps>`
       color: ${props.theme.primaryColor};
       background-color: white;
     `}
+
+  ${props =>
+    props.size === 'small' &&
+    css`
+      padding: 5px 10px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.75;
+    `}
 `
 
 export { StyledButton }
