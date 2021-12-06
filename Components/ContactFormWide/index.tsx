@@ -23,7 +23,7 @@ const ContactFormWide = ({}: ContactFormWideProps) => {
 
     try {
       await createRequest(request)
-      await sendMessageToGroup(`${request.name}: ${request.phoneNumber}`)
+      await sendMessageToGroup(`${request.name}: ${request.phoneNumber}`, 'HTML')
       setMessageStatus('success')
     } catch (error) {
       console.error(error)
