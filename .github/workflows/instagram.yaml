@@ -1,0 +1,13 @@
+name: Get photos from instagram
+on:
+  schedule:
+    - cron: '*/60 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get photos from instagram
+        run: |
+          curl --request GET \
+          --url 'https://vetslon.spb.ru/api/getInstagramPhotos' \
+          --header 'Authorization: Bearer ${{ secrets.ACTION_KEY }}'
