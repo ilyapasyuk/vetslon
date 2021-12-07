@@ -1,6 +1,5 @@
 import React, { Dispatch, ReactNode, createContext, useReducer } from 'react'
 
-import { Photo } from 'services/instagram'
 import { ClientPageType } from 'services/pages'
 import { ClientServiceCategoriesType, ClientServiceType } from 'services/services'
 import { User } from 'services/user'
@@ -12,7 +11,6 @@ export interface Store {
   mainMenu: ClientPageType[]
   servicesCategories: ClientServiceCategoriesType[]
   services: ClientServiceType[]
-  instagramPhotos: Photo[]
 }
 
 const DEFAULT_STORE: Store = {
@@ -20,7 +18,6 @@ const DEFAULT_STORE: Store = {
   mainMenu: [],
   servicesCategories: [],
   services: [],
-  instagramPhotos: [],
 }
 
 export type DispatchType = {
@@ -45,8 +42,6 @@ const reducer = (currentStore: Store, payload: DispatchType): Store => {
       return { ...currentStore, user: payload.data }
     case ACTION.SET_SERVICES_CATEGORIES:
       return { ...currentStore, servicesCategories: payload.data }
-    case ACTION.SET_INSTAGRAM_PHOTOS:
-      return { ...currentStore, instagramPhotos: payload.data }
     case ACTION.SET_SERVICES:
       return { ...currentStore, services: payload.data }
     default:
