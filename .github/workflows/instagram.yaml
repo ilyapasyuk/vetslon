@@ -10,4 +10,3 @@ jobs:
         run: |
           curl --request GET \
           --url 'https://vetslon.spb.ru/api/getInstagramPhotos' \
-          --header 'Authorization: Bearer ${{ secrets.ACTION_KEY }}'
