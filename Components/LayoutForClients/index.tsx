@@ -22,8 +22,6 @@ interface LayoutProps {
 const LayoutForClients = ({ children, title }: LayoutProps) => {
   const { state, dispatch } = useContext(StoreContext)
 
-  console.log('state', state)
-
   useEffect(() => {
     if (!Boolean(state.mainMenu.length)) {
       getSitePagesFromFirebase()
@@ -59,6 +57,21 @@ const LayoutForClients = ({ children, title }: LayoutProps) => {
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto&display=swap"
           rel="stylesheet"
         />
+        <meta name="title" content={`${CONFIG.appName} | ${CONFIG.defaultTitle}`} />
+        <meta name="description" content={CONFIG.slogan} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vetslon.spb.ru/" />
+        <meta property="og:title" content={`${CONFIG.appName} | ${CONFIG.defaultTitle}`} />
+        <meta property="og:description" content={CONFIG.slogan} />
+        <meta property="og:image" content="" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://vetslon.spb.ru/" />
+        <meta property="twitter:title" content={`${CONFIG.appName} | ${CONFIG.defaultTitle}`} />
+        <meta property="twitter:description" content={CONFIG.slogan} />
+        <meta property="twitter:image" content="" />
+
         <title>{`${title} | ${CONFIG.defaultTitle}`}</title>
         <script
           dangerouslySetInnerHTML={{
