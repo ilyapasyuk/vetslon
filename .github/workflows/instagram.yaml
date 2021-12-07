@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get photos from instagram
-        run: curl -x GET -d {} https://vetslon.spb.ru/api/getInstagramPhotos?username=ilyapasyuk
+        run: curl https://vetslon.spb.ru/api/getInstagramPhotos?username=ilyapasyuk
