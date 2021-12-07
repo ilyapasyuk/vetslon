@@ -38,6 +38,8 @@ export default async function handler(
           },
         )
 
+        console.log('photos', photos)
+
         res.status(200).json(photos)
       }
     }
