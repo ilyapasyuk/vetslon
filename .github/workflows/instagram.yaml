@@ -1,7 +1,7 @@
 name: Get photos from instagram
 on:
   schedule:
-    - cron: '*/60 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
