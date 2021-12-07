@@ -7,10 +7,12 @@ type Photo = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Photo[] | { error: unknown }>,
+  res: NextApiResponse<Photo[] | { error: unknown; url: string }>,
 ) {
+  const url: string = `https://www.instagram.com/${req.query.username}/?__a=1`
+
   try {
-    const response = await fetch(`https://www.instagram.com/${req.query.username}/?__a=1`, {
+    const response = await fetch(url, {
       method: 'GET',
       mode: 'no-cors',
     })
@@ -44,6 +46,6 @@ export default async function handler(
       }
     }
   } catch (error) {
-    res.status(400).json({ error: error })
+    res.status(400).json({ error: error, url: url })
   }
 }
