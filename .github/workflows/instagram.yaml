@@ -9,4 +9,4 @@ jobs:
       - name: Get photos from instagram
         run: |
           curl --request GET \
-          --url 'https://vetslon.spb.ru/api/getInstagramPhotos' \
+          --url 'https://vetslon.spb.ru/api/getInstagramPhotos?username=ilyapasyuk' \
