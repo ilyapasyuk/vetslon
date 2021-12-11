@@ -8,20 +8,20 @@ import cert1 from 'public/certs/image-14-01-21-12-10.jpeg'
 import React, { useState } from 'react'
 import { IoIosClose } from 'react-icons/io'
 
-import {
-  StyledCert,
-  StyledCerts,
-  StyledCertsPageWrapper,
-  StyledOpenedCert,
-  StyledOpenedCertClose,
-  StyledShowMoreArea,
-} from 'Containers/CertsPage/style'
-
 import { Button } from 'Components/Button'
 import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
+import { PageWrapper } from 'Components/PageWrapper'
 import { Surface } from 'Components/Surface'
+
+import {
+  StyledCert,
+  StyledCerts,
+  StyledOpenedCert,
+  StyledOpenedCertClose,
+  StyledShowMoreArea,
+} from './style'
 
 interface CertsPageProps {}
 
@@ -47,7 +47,7 @@ const CertsPage = ({}: CertsPageProps) => {
 
       <Surface>
         <Container>
-          <StyledCertsPageWrapper>
+          <PageWrapper>
             <StyledCerts>
               {certs.map(cert => (
                 <div className="cert" key={cert}>
@@ -60,15 +60,15 @@ const CertsPage = ({}: CertsPageProps) => {
                 </div>
               ))}
             </StyledCerts>
-          </StyledCertsPageWrapper>
+          </PageWrapper>
         </Container>
       </Surface>
 
       <Surface>
         <Container>
-          <StyledCertsPageWrapper>
+          <PageWrapper>
             <ContactFormWide />
-          </StyledCertsPageWrapper>
+          </PageWrapper>
         </Container>
       </Surface>
     </LayoutForClients>

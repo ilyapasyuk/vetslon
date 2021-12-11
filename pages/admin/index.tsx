@@ -1,10 +1,13 @@
+import { Container } from '@mui/material'
 import React, { useContext } from 'react'
 
 import { signInWithGoogle } from 'services/authentication'
 
 import { AdminMainPage } from 'Containers/AdminMainPage'
 
+import { Button } from 'Components/Button'
 import { LayoutForClients } from 'Components/LayoutForClients'
+import { PageWrapper } from 'Components/PageWrapper'
 
 import { ACTION } from 'Contexts/actions'
 import { StoreContext } from 'Contexts/store'
@@ -27,7 +30,15 @@ const Admin = ({}: AdminProps) => {
 
   return (
     <LayoutForClients title="Настройки">
-      {user?.isAdmin ? <AdminMainPage /> : <button onClick={logIn}>google</button>}
+      {user?.isAdmin ? (
+        <AdminMainPage />
+      ) : (
+        <Container>
+          <PageWrapper>
+            <Button onClick={logIn}>Google</Button>
+          </PageWrapper>
+        </Container>
+      )}
     </LayoutForClients>
   )
 }

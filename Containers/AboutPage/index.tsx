@@ -2,17 +2,14 @@ import { Card, CardContent, Container, Grid } from '@mui/material'
 import dogImage from 'public/dog_1.png'
 import React from 'react'
 
-import {
-  StyledAboutPageWrapper,
-  StyledAboutWhyWeDescription,
-  StyledAboutWhyWeTitle,
-} from 'Containers/AboutPage/style'
-
 import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
+import { PageWrapper } from 'Components/PageWrapper'
 import { Surface } from 'Components/Surface'
 import { Title } from 'Components/Title'
+
+import { StyledAboutWhyWeDescription, StyledAboutWhyWeTitle } from './style'
 
 interface AboutPageProps {}
 
@@ -47,7 +44,7 @@ const AboutPage = ({}: AboutPageProps) => {
       <PageIntro backgroundImage={dogImage.src} title="О нас" />
       <Surface>
         <Container maxWidth="md">
-          <StyledAboutPageWrapper>
+          <PageWrapper>
             <p>
               Круглосуточная ветеринарная выездная служба Вет Слон - это скорая служба помощи Вашим
               питомцам. Мы - команда профессиональных ветеринарных врачей, которые обладают опытом
@@ -67,12 +64,12 @@ const AboutPage = ({}: AboutPageProps) => {
               “Наша цель - дарить счастье вам и вашим любимым питомцам”
               <footer>Сергей Лях, руководитель клиники</footer>
             </blockquote>
-          </StyledAboutPageWrapper>
+          </PageWrapper>
         </Container>
       </Surface>
 
       <Container>
-        <StyledAboutPageWrapper>
+        <PageWrapper>
           <Title type="h1">Почему мы?</Title>
 
           <Grid container spacing={5}>
@@ -97,12 +94,12 @@ const AboutPage = ({}: AboutPageProps) => {
               </Grid>
             ))}
           </Grid>
-        </StyledAboutPageWrapper>
+        </PageWrapper>
       </Container>
 
       <Surface>
         <Container>
-          <StyledAboutPageWrapper>
+          <PageWrapper>
             <Grid container spacing={5} style={{ marginBottom: 50 }}>
               <Grid item xs={12} sm={6} md={6}>
                 <Title type="h4">
@@ -119,7 +116,7 @@ const AboutPage = ({}: AboutPageProps) => {
               </Grid>
             </Grid>
             <ContactFormWide />
-          </StyledAboutPageWrapper>
+          </PageWrapper>
         </Container>
       </Surface>
     </LayoutForClients>

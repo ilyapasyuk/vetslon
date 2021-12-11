@@ -11,11 +11,6 @@ const StyledCerts = styled.div`
   }
 `
 
-const StyledCertsPageWrapper = styled.div`
-  padding-top: 110px;
-  padding-bottom: 110px;
-`
-
 const StyledCert = styled.div`
   border-radius: 4px;
   background: #f4f1ea;
@@ -99,11 +94,4 @@ const StyledOpenedCertClose = styled.button`
   }
 `
 
-export {
-  StyledCertsPageWrapper,
-  StyledCerts,
-  StyledCert,
-  StyledShowMoreArea,
-  StyledOpenedCert,
-  StyledOpenedCertClose,
-}
+export { StyledCerts, StyledCert, StyledShowMoreArea, StyledOpenedCert, StyledOpenedCertClose }

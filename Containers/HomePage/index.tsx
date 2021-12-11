@@ -2,12 +2,11 @@ import { Container } from '@mui/material'
 import React from 'react'
 import { FcHome, FcMoneyTransfer, FcOvertime, FcReading } from 'react-icons/fc'
 
-import { StyledHomeWrapper } from 'Containers/HomePage/styled'
-
 import { ContactFormWide } from 'Components/ContactFormWide'
 import { HomeServices } from 'Components/HomeServices'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
+import { PageWrapper } from 'Components/PageWrapper'
 import { IPromo, Promo } from 'Components/Promo'
 import { Surface } from 'Components/Surface'
 
@@ -35,11 +34,11 @@ const HomePage = ({}: HomePageProps) => {
       </Container>
 
       <Surface>
-        <StyledHomeWrapper>
+        <PageWrapper>
           <Container>
             <ContactFormWide />
           </Container>
-        </StyledHomeWrapper>
+        </PageWrapper>
       </Surface>
     </LayoutForClients>
   )
