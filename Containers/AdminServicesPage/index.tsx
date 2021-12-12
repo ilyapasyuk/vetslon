@@ -12,6 +12,7 @@ import {
 import React, { useContext, useEffect, useState } from 'react'
 import { MdExpandMore } from 'react-icons/md'
 
+import { createAlgoliaObject, updateAlgoliaIndexes } from 'services/algolia'
 import {
   ClientServiceType,
   ServerServiceCategoriesType,
@@ -79,6 +80,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
     setLoadingState('loading')
     try {
       await updateService(updatedService)
+      await updateAlgoliaIndexes(state.services)
       await init()
     } catch (error) {
       console.error('updateServiceInFirebase:', error)
@@ -92,6 +94,7 @@ const AdminServicesPage = ({}: AdminServicesPageProps) => {
     setLoadingState('loading')
     try {
       await deleteService(serviceForDelete)
+      await updateAlgoliaIndexes(state.services)
       await init()
     } catch (error) {
       console.error('deleteServiceInFirebase:', error)

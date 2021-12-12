@@ -3,6 +3,7 @@ import React from 'react'
 import { ClientPageType } from 'services/pages'
 
 import { ActiveLink } from 'Components/ActiveLink'
+import { Search } from 'Components/Search'
 
 import { StyledMainMenuDesktopItem, StyledMainMenuDesktopList } from './style'
 

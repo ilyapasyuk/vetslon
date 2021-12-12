@@ -25,20 +25,16 @@ const Admin = ({}: AdminProps) => {
   }
 
   if (user && !user?.isAdmin) {
-    return <h2>Sorry, your isn`t admin =/ </h2>
+    return <h2>Sorry, your aren`t admin =/ </h2>
   }
 
   return (
     <LayoutForClients title="Настройки">
-      {user?.isAdmin ? (
-        <AdminMainPage />
-      ) : (
-        <Container>
-          <PageWrapper>
-            <Button onClick={logIn}>Google</Button>
-          </PageWrapper>
-        </Container>
-      )}
+      <Container>
+        <PageWrapper>
+          {user?.isAdmin ? <AdminMainPage /> : <Button onClick={logIn}>Google</Button>}
+        </PageWrapper>
+      </Container>
     </LayoutForClients>
   )
 }
