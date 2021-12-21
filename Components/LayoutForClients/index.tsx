@@ -99,7 +99,7 @@ const LayoutForClients = ({ children, title }: LayoutProps) => {
         })(window,document,window['_fs_namespace'],'script','user');`,
           }}
         />
-        <meta name="yandex-verification" content="c10601c448f133ed" />
+        <meta name="yandex-verification" content="d3fbb7876bca2aee" />
       </Head>
       <ContactsNotice
         phoneNumber={CONFIG.phoneNumber}
