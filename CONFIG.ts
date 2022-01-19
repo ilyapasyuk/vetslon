@@ -22,7 +22,7 @@ export interface Config {
 }
 
 export const CONFIG: Config = {
-  instagramUrl: 'https://www.instagram.com/sergey_vet777/',
+  instagramUrl: 'https://www.instagram.com/doc_ot_boga/',
   telegramUrl: 'https://telegram.im/@Sergey',
   whatsappUrl: 'whatsapp://send?phone=79111648558',
   phoneNumber: '+7 911 164-85-58',
