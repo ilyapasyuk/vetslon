@@ -7,6 +7,7 @@ import { ClientPageType } from 'services/pages'
 
 import { StyledHeader, StyledHeaderInner, StyledHeaderLogo } from 'Components/Header/style'
 import { MainMenuDesktop } from 'Components/MainMenuDesktop'
+import { Search } from 'Components/Search'
 
 interface HeaderProps {
   menu: ClientPageType[]
@@ -25,6 +26,7 @@ const Header = ({ menu }: HeaderProps) => {
             </Link>
           </StyledHeaderLogo>
           <MainMenuDesktop menu={filteredMainMenu} />
+          <Search />
         </StyledHeaderInner>
       </Container>
     </StyledHeader>

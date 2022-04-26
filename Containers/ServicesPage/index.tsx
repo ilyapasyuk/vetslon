@@ -5,23 +5,22 @@ import { MdExpandMore } from 'react-icons/md'
 
 import { getAllServices, getAllServicesCategories } from 'services/services'
 
-import {
-  StyledServicesContactFormWrapper,
-  StyledServicesPage,
-  StyledServicesPageExpandedIcon,
-  StyledServicesPageList,
-  StyledServicesPageRow,
-  StyledServicesPageWrapper,
-} from 'Containers/ServicesPage/style'
-
 import { ContactFormWide } from 'Components/ContactFormWide'
 import { LayoutForClients } from 'Components/LayoutForClients'
 import { PageIntro } from 'Components/PageIntro'
+import { PageWrapper } from 'Components/PageWrapper'
 import { Surface } from 'Components/Surface'
 import { Title } from 'Components/Title'
 
 import { ACTION } from 'Contexts/actions'
 import { StoreContext } from 'Contexts/store'
+
+import {
+  StyledServicesPage,
+  StyledServicesPageExpandedIcon,
+  StyledServicesPageList,
+  StyledServicesPageRow,
+} from './style'
 
 interface ServicesPageProps {}
 
@@ -43,7 +42,7 @@ const ServicesPage = ({}: ServicesPageProps) => {
     <LayoutForClients title="Услуги и цены">
       <PageIntro backgroundImage={corgiImage.src} title="Услуги и цены" />
       <Container>
-        <StyledServicesPageWrapper>
+        <PageWrapper>
           <p>* Примечание: Стоимость препаратов не включена.</p>
           <p>
             * Стоимость услуг, не вошедших в прейскурант, оговаривается с ветеринарным врачом в
@@ -88,15 +87,15 @@ const ServicesPage = ({}: ServicesPageProps) => {
               )
             })}
           </StyledServicesPage>
-        </StyledServicesPageWrapper>
+        </PageWrapper>
       </Container>
 
       <Surface>
-        <StyledServicesContactFormWrapper>
+        <PageWrapper>
           <Container>
             <ContactFormWide />
           </Container>
-        </StyledServicesContactFormWrapper>
+        </PageWrapper>
       </Surface>
     </LayoutForClients>
   )

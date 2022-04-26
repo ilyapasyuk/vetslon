@@ -33,7 +33,7 @@ const getAllServices = async (): Promise<ClientServiceType[]> => {
       title: doc.get('title'),
       categoryId: doc.get('categoryId'),
       price: doc.get('price'),
-      isAbovePrice: doc.get('isAbovePrice'),
+      isAbovePrice: doc.get('isAbovePrice') || false,
     })
   })
 

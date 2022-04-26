@@ -19,6 +19,9 @@ export interface Config {
     appId: string
     measurementId: string
   }
+  algoliaAppId: string
+  algoliaAdminAPIKey: string
+  algoliaIndexName: string
 }
 
 export const CONFIG: Config = {
@@ -42,6 +45,9 @@ export const CONFIG: Config = {
     appId: '1:438436121274:web:4e81645adb2017791e9083',
     measurementId: 'G-L1FL89F9D4',
   },
+  algoliaAppId: '14MYC17QAW',
+  algoliaAdminAPIKey: 'a64eddb2d3b312c77cda53e8dfc13d1a',
+  algoliaIndexName: 'services',
 }
 
 export enum COLLECTION {

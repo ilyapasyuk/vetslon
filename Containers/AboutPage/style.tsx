@@ -1,10 +1,5 @@
 import styled from 'styled-components'
 
-const StyledAboutPageWrapper = styled.div`
-  padding-top: 110px;
-  padding-bottom: 110px;
-`
-
 const StyledAboutWhyWeTitle = styled.div`
   color: ${({ theme }) => theme.primaryColor}!important;
   & > * {
@@ -20,4 +15,4 @@ const StyledAboutWhyWeDescription = styled.div`
   font-size: 16px;
 `
 
-export { StyledAboutPageWrapper, StyledAboutWhyWeDescription, StyledAboutWhyWeTitle }
+export { StyledAboutWhyWeDescription, StyledAboutWhyWeTitle }
